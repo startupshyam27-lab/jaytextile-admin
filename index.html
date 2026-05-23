@@ -386,7 +386,12 @@
         </div>
     </div>
 
+        <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        const SUPABASE_URL = 'https://cumcgpglqqscgjsxvcxb.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bWNncGdscXFzY2dqc3h2Y3hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NTYxNTYsImV4cCI6MjA5NTAzMjE1Nn0.K5AmDkEMg7VZkyjA46zUZjfKH4Tx-jUcwc37sTBlBdQ';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         // Shared data keys
         const STORAGE_PRODUCTS_KEY = "jaytextile_products";
         const STORAGE_PROFILE_KEY = "jaytextile_profile";
@@ -583,12 +588,15 @@
 
         // Populate business details dynamically
         async function loadProfile() {
-            let profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
+            const { data, error } = await supabase.from('business_profile').select('*').single();
+            let profile = data;
+            if (error || !profile) {
+                profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
+            }
             
             if (!profile.timings) {
                 profile.timings = defaultProfile.timings;
                 profile.special_holidays = defaultProfile.special_holidays;
-                localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(profile));
             }
 
             // Seed contact numbers if missing or empty
@@ -596,7 +604,6 @@
                 profile.contact_numbers = [
                     { label: "Showroom Inquiry", number: profile.whatsapp_number || defaultProfile.whatsapp_number, isPrimary: true }
                 ];
-                localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(profile));
             }
 
             activeProfile = profile;
@@ -779,7 +786,17 @@
         }
 
         async function loadProducts() {
-            let products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            const { data, error } = await supabase.from('products').select('*').order('added_date', { ascending: false });
+            let products = [];
+            if (data && !error) {
+                products = data.map(item => ({
+                    ...item,
+                    inStock: item.in_stock,
+                    image: item.main_image
+                }));
+            } else {
+                products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            }
 
             activeProducts = products;
             const grid = document.getElementById('products-grid');

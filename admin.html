@@ -964,7 +964,12 @@
         </div>
     </div>
 
+        <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        const SUPABASE_URL = 'https://cumcgpglqqscgjsxvcxb.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bWNncGdscXFzY2dqc3h2Y3hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NTYxNTYsImV4cCI6MjA5NTAzMjE1Nn0.K5AmDkEMg7VZkyjA46zUZjfKH4Tx-jUcwc37sTBlBdQ';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         // Shared data keys
         const STORAGE_PRODUCTS_KEY = "jaytextile_products";
         const STORAGE_PROFILE_KEY = "jaytextile_profile";
@@ -1064,13 +1069,13 @@
         // Seeding checks for Local Storage demo fallback
         if (!localStorage.getItem(STORAGE_PROFILE_KEY)) {
             localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(defaultProfile));
-        }
-        if (!localStorage.getItem(STORAGE_PRODUCTS_KEY)) {
-            localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(defaultProducts));
-        }
+        // Data Models & State
+        const SUPABASE_URL = 'https://cumcgpglqqscgjsxvcxb.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bWNncGdscXFzY2dqc3h2Y3hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NTYxNTYsImV4cCI6MjA5NTAzMjE1Nn0.K5AmDkEMg7VZkyjA46zUZjfKH4Tx-jUcwc37sTBlBdQ';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Global lists for operations
-        let products = [];
+        const STORAGE_CURRENT_ADMIN_KEY = "jaytextile_current_admin";
+        
         let profile = null;
 
         // Normalizes product images into { url, color, size } objects
@@ -2114,8 +2119,10 @@
         async function deleteProduct(idx) {
             const p = products[idx];
             if (confirm(`Are you absolutely sure you want to remove collection "${p.title}" from the showroom catalog?`)) {
+                if (p.id) {
+                    await supabase.from('products').delete().eq('id', p.id);
+                }
                 products.splice(idx, 1);
-                localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(products));
                 renderProducts();
                 showToast("Product Removed", `"${p.title}" has been deleted from active inventory.`);
             }
@@ -2174,14 +2181,45 @@
                 image: mappedImages[0] ? mappedImages[0].url : fallbackProductImage
             };
 
+            const dbItem = {
+                item_code: titleVal.toLowerCase().replace(/\s+/g, '-'),
+                title: titleVal,
+                fabric: materialVal,
+                type: categoryVal,
+                tag: tagVal,
+                in_stock: stockVal,
+                details: detailsVal,
+                color: colorVal,
+                size: sizeVal,
+                images: mappedImages,
+                main_image: mappedImages[0] ? mappedImages[0].url : fallbackProductImage
+            };
+
+            const submitBtn = document.getElementById('submit-btn');
+            const originalHtml = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Saving...';
+            submitBtn.disabled = true;
+
             if (editingProductIndex > -1) {
-                products[editingProductIndex] = item;
+                const currentId = products[editingProductIndex].id;
+                if (currentId) {
+                    await supabase.from('products').update(dbItem).eq('id', currentId);
+                }
+                products[editingProductIndex] = { ...item, ...dbItem, id: currentId, inStock: stockVal, image: dbItem.main_image };
                 showToast("Collection Updated", `"${titleVal}" updated successfully.`);
             } else {
-                products.push(item);
+                const { data, error } = await supabase.from('products').insert([dbItem]).select();
+                if (data && data.length > 0) {
+                    const newItem = data[0];
+                    products.unshift({ ...item, ...newItem, inStock: newItem.in_stock, image: newItem.main_image });
+                } else {
+                    products.unshift({ ...item, ...dbItem, inStock: stockVal, image: dbItem.main_image });
+                }
                 showToast("Collection Added", `"${titleVal}" added to active inventory.`);
             }
-            localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(products));
+
+            submitBtn.innerHTML = originalHtml;
+            submitBtn.disabled = false;
 
             resetForm();
             renderProducts();
@@ -2230,8 +2268,12 @@
                 special_holidays: tempHolidays
             };
 
+            const { error } = await supabase.from('business_profile').update(updatedProfile).eq('id', 1);
+            if (error) {
+                showToast("Error Saving Profile", error.message, true);
+                return;
+            }
             profile = updatedProfile;
-            localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(updatedProfile));
 
             closeProfileModal();
             renderProfile();
@@ -2410,15 +2452,10 @@
         }
 
         // Auth Functions
-        const STORAGE_ADMINS_KEY = "jaytextile_admins";
         const STORAGE_CURRENT_ADMIN_KEY = "jaytextile_current_admin";
 
         async function initAuth() {
-            let admins = JSON.parse(localStorage.getItem(STORAGE_ADMINS_KEY));
-            if (!admins || admins.length === 0) {
-                admins = [{ username: 'jaytextile222324', password: 'jaytextile2026' }];
-                localStorage.setItem(STORAGE_ADMINS_KEY, JSON.stringify(admins));
-            }
+
 
             const currentAdmin = localStorage.getItem(STORAGE_CURRENT_ADMIN_KEY);
             if (currentAdmin) {
@@ -2441,27 +2478,29 @@
             submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Authenticating...';
             submitBtn.disabled = true;
 
-            const admins = JSON.parse(localStorage.getItem(STORAGE_ADMINS_KEY)) || [];
-            const validAdmin = admins.find(a => a.username === username && a.password === password);
+            const { data: validAdmin, error } = await supabase
+                .from('admins')
+                .select('*')
+                .eq('username', username)
+                .eq('password', password)
+                .single();
 
-            setTimeout(() => {
-                submitBtn.innerHTML = 'Authenticate <span class="material-symbols-outlined text-[18px]">vpn_key</span>';
-                submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Authenticate <span class="material-symbols-outlined text-[18px]">vpn_key</span>';
+            submitBtn.disabled = false;
 
-                if (validAdmin) {
-                    localStorage.setItem(STORAGE_CURRENT_ADMIN_KEY, username);
-                    errorMsg.classList.add('hidden');
-                    isAuthenticated = true;
-                    document.getElementById('admin-login-overlay').classList.add('hidden');
-                    document.getElementById('admin-logout-btn').classList.remove('hidden');
-                    loadDashboardData();
-                    showToast('Login Successful', `Welcome back, ${username}.`);
-                    document.getElementById('login-form').reset();
-                } else {
-                    errorMsg.textContent = "Invalid username or password.";
-                    errorMsg.classList.remove('hidden');
-                }
-            }, 600); // Simulate network delay for UX
+            if (validAdmin) {
+                localStorage.setItem(STORAGE_CURRENT_ADMIN_KEY, username);
+                errorMsg.classList.add('hidden');
+                isAuthenticated = true;
+                document.getElementById('admin-login-overlay').classList.add('hidden');
+                document.getElementById('admin-logout-btn').classList.remove('hidden');
+                loadDashboardData();
+                showToast('Login Successful', `Welcome back, ${username}.`);
+                document.getElementById('login-form').reset();
+            } else {
+                errorMsg.textContent = "Invalid username or password.";
+                errorMsg.classList.remove('hidden');
+            }
         }
 
         async function handleAdminLogout() {
@@ -2474,21 +2513,28 @@
             }
         }
 
-        function handleAddAdmin(e) {
+        async function handleAddAdmin(e) {
             e.preventDefault();
             const newUsername = document.getElementById('new-admin-username').value.trim();
             const newPassword = document.getElementById('new-admin-password').value;
             
-            let admins = JSON.parse(localStorage.getItem(STORAGE_ADMINS_KEY)) || [];
+            const submitBtn = document.getElementById('add-admin-form').querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Creating...';
+            submitBtn.disabled = true;
             
-            if (admins.find(a => a.username === newUsername)) {
-                showToast('Error', 'Username already exists.', true);
+            const { data, error } = await supabase
+                .from('admins')
+                .insert([{ username: newUsername, password: newPassword }]);
+            
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            if (error) {
+                showToast('Error', error.message || 'Username already exists.', true);
                 return;
             }
 
-            admins.push({ username: newUsername, password: newPassword });
-            localStorage.setItem(STORAGE_ADMINS_KEY, JSON.stringify(admins));
-            
             showToast('Admin Created', `Sub-admin "${newUsername}" has been added successfully.`);
             document.getElementById('add-admin-form').reset();
             closeAdminModal();
@@ -2516,13 +2562,25 @@
         }
 
         async function fetchProfile() {
-            if (!profile) {
+            const { data, error } = await supabase.from('business_profile').select('*').single();
+            if (data && !error) {
+                profile = data;
+            } else {
                 profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
             }
         }
 
         async function fetchProducts() {
-            products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            const { data, error } = await supabase.from('products').select('*').order('added_date', { ascending: false });
+            if (data && !error) {
+                products = data.map(item => ({
+                    ...item,
+                    inStock: item.in_stock,
+                    image: item.main_image
+                }));
+            } else {
+                products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            }
         }
 
         // Initial setup
