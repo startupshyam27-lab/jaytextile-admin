@@ -1069,13 +1069,8 @@
         // Seeding checks for Local Storage demo fallback
         if (!localStorage.getItem(STORAGE_PROFILE_KEY)) {
             localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(defaultProfile));
-        // Data Models & State
-        const SUPABASE_URL = 'https://cumcgpglqqscgjsxvcxb.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bWNncGdscXFzY2dqc3h2Y3hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NTYxNTYsImV4cCI6MjA5NTAzMjE1Nn0.K5AmDkEMg7VZkyjA46zUZjfKH4Tx-jUcwc37sTBlBdQ';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
 
-        const STORAGE_CURRENT_ADMIN_KEY = "jaytextile_current_admin";
-        
         let profile = null;
 
         // Normalizes product images into { url, color, size } objects
@@ -2161,19 +2156,6 @@
                 type: categoryVal,
                 tag: tagVal,
                 inStock: stockVal,
-                details: detailsVal,
-                color: colorVal,
-                size: sizeVal,
-                images: mappedImages,
-                image: mappedImages[0] ? mappedImages[0].url : fallbackProductImage
-            };
-
-            const dbItem = {
-                title: titleVal,
-                fabric: materialVal,
-                type: categoryVal,
-                tag: tagVal,
-                in_stock: stockVal,
                 details: detailsVal,
                 color: colorVal,
                 size: sizeVal,
