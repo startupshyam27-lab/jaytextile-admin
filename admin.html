@@ -2460,7 +2460,7 @@
             submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Authenticating...';
             submitBtn.disabled = true;
 
-            const { data: validAdmin, error } = await supabase
+            const { data: validAdmin, error } = await supabaseClient
                 .from('admins')
                 .select('*')
                 .eq('username', username)
@@ -2505,8 +2505,7 @@
             submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Creating...';
             submitBtn.disabled = true;
             
-            const { data, error } = await supabase
-                .from('admins')
+            const { data, error } = await supabaseClient.from('admins')
                 .insert([{ username: newUsername, password: newPassword }]);
             
             submitBtn.innerHTML = originalText;
