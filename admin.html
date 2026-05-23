@@ -1,0 +1,2547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Jay Textile Ahmedabad Admin</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#126e0c",
+                      "inverse-surface": "#303221",
+                      "surface-dim": "#dbdcc3",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#82db6f",
+                      "on-secondary-container": "#197211",
+                      "inverse-on-surface": "#f2f2d9",
+                      "surface-bright": "#fbfbe2",
+                      "surface-variant": "#e4e4cc",
+                      "on-secondary-fixed": "#002200",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#000c61",
+                      "on-primary-fixed-variant": "#8f0f07",
+                      "on-surface": "#1b1d0e",
+                      "tertiary-container": "#0021b9",
+                      "primary-fixed-dim": "#ffb4a8",
+                      "surface-container-low": "#f5f5dc",
+                      "primary-fixed": "#ffdad4",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#005300",
+                      "primary-container": "#800000",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e4cc",
+                      "primary": "#570000",
+                      "tertiary": "#00137f",
+                      "on-primary-fixed": "#410000",
+                      "secondary-fixed": "#9df888",
+                      "on-background": "#1b1d0e",
+                      "on-surface-variant": "#5a413d",
+                      "surface-tint": "#b22b1d",
+                      "outline-variant": "#e2bfb9",
+                      "on-tertiary-container": "#94a0ff",
+                      "tertiary-fixed": "#dfe0ff",
+                      "inverse-primary": "#ffb4a8",
+                      "outline": "#8e706c",
+                      "surface-container-high": "#eaead1",
+                      "on-primary-container": "#ff8371",
+                      "surface": "#fbfbe2",
+                      "background": "#fbfbe2",
+                      "surface-container": "#efefd7",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#1830c2",
+                      "tertiary-fixed-dim": "#bcc2ff",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#9bf585",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max-width": "1280px",
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "label-md": [
+                              "Montserrat"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fbfbe2; /* surface */
+            color: #1b1d0e; /* on-surface */
+        }
+        .admin-shadow {
+            box-shadow: 0px 10px 30px rgba(87, 0, 0, 0.05);
+        }
+        .hover-gold-border:hover {
+            border: 1px solid #c8a24d;
+        }
+        /* Custom scrollbar for admin interface */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fbfbe2; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2bfb9; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8e706c; 
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden font-body-md text-body-md bg-background">
+    <!-- Admin Authentication Glassmorphic Overlay -->
+    <div id="admin-login-overlay" class="fixed inset-0 z-[9999] flex items-center justify-center bg-background/30 backdrop-blur-2xl transition-all duration-500 hidden">
+        <div class="w-full max-w-md p-8 bg-surface/80 border border-outline-variant/60 rounded-2xl shadow-2xl backdrop-blur-md flex flex-col gap-6 relative mx-4 animate-in fade-in zoom-in-95 duration-300">
+            <!-- Decorative blur objects -->
+            <div class="absolute -top-10 -left-10 w-24 h-24 bg-primary/20 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-10 -right-10 w-24 h-24 bg-secondary/20 rounded-full blur-xl pointer-events-none"></div>
+            
+            <div class="text-center relative z-10">
+                <div class="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 border border-outline-variant/40">
+                    <span class="material-symbols-outlined text-3xl">admin_panel_settings</span>
+                </div>
+                <h1 class="font-display-lg text-headline-lg text-primary font-semibold">Jay Textile</h1>
+                <p id="auth-title" class="text-on-surface-variant text-label-md mt-1">Showroom Administrative Portal</p>
+            </div>
+            
+
+            <form id="login-form" class="flex flex-col gap-4 relative z-10" onsubmit="handleAdminLogin(event)">
+                <div class="flex flex-col gap-1.5">
+                    <label for="login-username" class="text-label-sm font-label-sm text-on-surface-variant font-semibold">Admin Username</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">person</span>
+                        <input type="text" id="login-username" required class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant/80 bg-surface-container-lowest text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-body-md text-body-md" placeholder="jaytextile222324">
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-1.5">
+                    <label for="login-password" class="text-label-sm font-label-sm text-on-surface-variant font-semibold">Password</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+                        <input type="password" id="login-password" required class="w-full pl-10 pr-4 py-3 rounded-lg border border-outline-variant/80 bg-surface-container-lowest text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-body-md text-body-md" placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div id="login-error-msg" class="text-error text-xs font-semibold hidden text-center mt-1"></div>
+                
+                <button type="submit" id="login-submit-btn" class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold hover:bg-primary/95 transition-all shadow-md mt-2 flex items-center justify-center gap-2">
+                    Authenticate
+                    <span class="material-symbols-outlined text-[18px]">vpn_key</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- SideNavBar (Shared Component) -->
+    <nav class="hidden md:flex fixed left-0 top-0 h-full w-64 p-gutter flex-col gap-unit border-r border-outline-variant bg-surface-container-low dark:bg-inverse-surface z-50">
+        <!-- Header -->
+        <div class="mb-8 px-4 flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary overflow-hidden shrink-0">
+                <img alt="Jay Textile Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnTUHMVSvetP20MmGjwWmaVst6JgG4wo5qd98M-DgXVKI1kVws6LVA5wILAUBZFg92nX9O9ub-nGdgsRyTdFS_858JxkBOJZinadEiqJpEoYtk5Cxa5jq-q-T6AW6_lOybI0_5jQ07hJO64tKXG2E5PvoCH8sXZ8HFt8cU5KCz7o35V8EcnvkwcncBT__zNVvGDO7wOQS9CoHy9IJoyt_DoQK2OJt28x1kp1RHVGzbyVQCOKB3PR3nGkZHFzc8DCynYE8_58qGurhz"/>
+            </div>
+            <div>
+                <h1 class="font-headline-md text-headline-md text-primary truncate leading-tight" id="sidebar-brand-name">Jay Textile</h1>
+                <p class="font-label-sm text-label-sm text-on-surface-variant">Wholesale Admin</p>
+            </div>
+        </div>
+        <!-- Navigation Links -->
+        <div class="flex-1 flex flex-col gap-2 overflow-y-auto">
+            <a aria-current="page" class="flex items-center gap-3 px-4 py-3 text-primary bg-primary-fixed dark:bg-primary-container rounded-lg font-bold transition-all cursor-pointer" href="#">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span class="font-label-md text-label-md">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" href="#active-inventory-section">
+                <span class="material-symbols-outlined">inventory_2</span>
+                <span class="font-label-md text-label-md">Collections</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" onclick="openProfileModal()">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-label-md text-label-md">Settings</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" onclick="openProfileModal()">
+                <span class="material-symbols-outlined">storefront</span>
+                <span class="font-label-md text-label-md">Showroom Profile</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" onclick="openAdminModal()">
+                <span class="material-symbols-outlined">admin_panel_settings</span>
+                <span class="font-label-md text-label-md">Admin Management</span>
+            </a>
+        </div>
+        <!-- CTA -->
+        <div class="mt-auto pt-4 border-t border-outline-variant">
+            <button class="w-full py-3 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity" onclick="scrollToForm()">
+                <span class="material-symbols-outlined">add</span>
+                Add New Collection
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col md:ml-64 h-full relative overflow-hidden">
+        <!-- TopNavBar (Shared Component) -->
+        <header class="flex justify-between items-center w-full px-margin-desktop h-16 z-40 bg-surface dark:bg-inverse-surface shadow-sm sticky top-0 shrink-0 border-b border-outline-variant/30">
+            <!-- Mobile Menu Toggle (Only visible on small screens) -->
+            <button class="md:hidden text-primary p-2 -ml-2 rounded-full hover:bg-surface-variant/50 transition-all duration-200" onclick="toggleMobileMenu()">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <!-- Brand Logo / Title -->
+            <div class="font-headline-md text-headline-md font-semibold text-primary dark:text-primary-fixed-dim" id="header-brand-title">
+                Jay Textile Ahmedabad Admin
+            </div>
+            <!-- Actions -->
+            <div class="flex items-center gap-2">
+                <button id="admin-logout-btn" class="p-2 text-on-surface-variant hover:text-error transition-colors hover:bg-error/10 rounded-full duration-200 flex items-center justify-center hidden" onclick="handleAdminLogout()" title="Sign Out">
+                    <span class="material-symbols-outlined">logout</span>
+                </button>
+                <button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-variant/50 rounded-full duration-200" onclick="openProfileModal()">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
+                <a class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-variant/50 rounded-full duration-200 flex items-center justify-center" href="./index.html" target="_blank" title="Preview Showroom Landing Page">
+                    <span class="material-symbols-outlined">visibility</span>
+                </a>
+                <img alt="Administrator Profile" class="w-8 h-8 rounded-full object-cover hidden md:block ml-2 border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9znaWxjYjAwwjVIH7DjKIaNL-_0ap-rYk8RvWcJkEVCGIXpLjbkj8bW5CJFkwO8FcvNpBBLAYXJnLOK2jcLLgpk_JlBnM1XMMBzK13osDikcXHcDfJB65iCWLLeypn5VTHmqEPL58tzcVTbphZxu9G5D_l7tCS_kJtvA-UL5NbtU_vvEvqSQFSRknEbKXlAlZBjpUUcxNoM-cG-SbDsnpq7zN91Ha-4X4eG4LpxyETBL4LB4apgmrvF8GegM2r36oiFrFfufAxEdU"/>
+            </div>
+        </header>
+
+        <!-- Scrollable Canvas -->
+        <main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop pb-32">
+            <div class="max-w-container-max-width mx-auto flex flex-col gap-12">
+                <!-- Page Title Area -->
+                <div>
+                    <h2 class="font-display-lg text-display-lg text-primary mb-2">Dashboard Overview</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Manage your high-end wholesale catalog, inventory, and showroom details.</p>
+                </div>
+                <!-- Bento Grid Layout for Main Dashboard Sections -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Add New Collection Form -->
+                    <section class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-8 admin-shadow border border-surface-container-high" id="form-section">
+                        <div class="flex items-center justify-between mb-8 border-b border-outline-variant pb-4">
+                            <h3 class="font-headline-md text-headline-md text-primary" id="form-heading">Add New Collection</h3>
+                            <button id="cancel-edit-btn" class="hidden text-error hover:bg-error/10 px-3 py-1 rounded text-sm font-semibold transition-colors flex items-center gap-1" onclick="resetForm()">
+                                <span class="material-symbols-outlined text-[16px]">close</span> Cancel Edit
+                            </button>
+                        </div>
+                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="product-form" onsubmit="handleFormSubmit(event)">
+                            <!-- Product Title -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-title">Product Title / Code</label>
+                                <input required class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="product-title" placeholder="e.g., JT-3513" type="text"/>
+                            </div>
+                            <!-- Collection Category -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="category">Collection Category (Type)</label>
+                                <input required class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="category" placeholder="e.g., Jaipuri Collection" type="text"/>
+                            </div>
+                            <!-- Material -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="material">Material (Fabric)</label>
+                                <input required class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="material" placeholder="e.g., Slub Cotton" type="text"/>
+                            </div>
+                            <!-- Price / Details -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="details">Wholesale Details</label>
+                                <input class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="details" placeholder="e.g., 4 Pcs Set" type="text"/>
+                            </div>
+                            <!-- Stock Status -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-stock">Stock Availability</label>
+                                <select class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="product-stock">
+                                    <option value="in-stock">In Stock</option>
+                                    <option value="out-of-stock">Out of Stock / Sample Only</option>
+                                </select>
+                            </div>
+                            <!-- Tag / Priority badge -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-tag">Hero Tag Badge</label>
+                                <select class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="product-tag">
+                                    <option value="">None (Standard)</option>
+                                    <option value="New Arrival">New Arrival</option>
+                                    <option value="Trending">Trending</option>
+                                </select>
+                            </div>
+                            <!-- Color -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-color">Color</label>
+                                <input class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="product-color" placeholder="e.g., Red, Blue, Pink" type="text"/>
+                            </div>
+                            <!-- Size -->
+                            <div class="col-span-1">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-size">Size</label>
+                                <input class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="product-size" placeholder="e.g., M, L, XL, XXL" type="text"/>
+                            </div>
+                            <!-- Image Upload Zone -->
+                            <div class="col-span-1 md:col-span-2 mt-4">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2">Catalog Imagery (Upload Multiple Files)</label>
+                                <input type="file" id="image-file-input" accept="image/*" class="hidden" multiple>
+                                <div id="upload-zone" class="border-2 border-dashed border-outline-variant rounded-lg bg-surface flex flex-col items-center justify-center py-10 hover:bg-surface-variant/50 transition-colors cursor-pointer group relative min-h-[140px]">
+                                    <!-- Base state visual -->
+                                    <div id="upload-base-visual" class="flex flex-col items-center justify-center transition-all duration-300">
+                                        <span class="material-symbols-outlined text-4xl text-outline group-hover:text-primary mb-2 transition-colors">cloud_upload</span>
+                                        <p class="font-body-md text-body-md text-on-surface-variant text-center px-4">Drag & drop or click to upload one or more high-res images<br/><span class="font-label-sm text-label-sm opacity-70">Supports PNG, JPG, WEBP (Canvas compressed automatically)</span></p>
+                                    </div>
+                                </div>
+
+                                <!-- Actions and header for multi-upload -->
+                                <div id="preview-grid-actions" class="flex justify-between items-center mt-6 mb-3 hidden bg-surface-container/30 px-3 py-2 rounded-lg border border-outline-variant/20">
+                                    <span class="text-xs text-on-surface font-semibold flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[16px] text-primary">collections</span>
+                                        Uploaded Gallery Images Preview
+                                    </span>
+                                    <button type="button" class="bg-primary text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-primary/90 transition-all flex items-center gap-1 shadow-sm font-label-sm" onclick="openBulkImageEditModal()">
+                                        <span class="material-symbols-outlined text-[16px]">edit_note</span> Edit All Details
+                                    </button>
+                                </div>
+                                
+                                <!-- Multi-Photo Thumbnail Preview Grid -->
+                                <div id="upload-preview-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mt-2 hidden">
+                                    <!-- Populated dynamically via JS -->
+                                </div>
+                            </div>
+                            <!-- Image URL text field with Add URL button -->
+                            <div class="col-span-1 md:col-span-2">
+                                <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-image">Or Catalog Imagery URL (External Link)</label>
+                                <div class="flex gap-2">
+                                    <input class="flex-1 bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-b-2 focus:bg-surface-variant/20 transition-all font-body-md text-body-md py-2 px-1" id="product-image" placeholder="Enter image URL and click Add (e.g., https://example.com/pic.jpg)..." type="text"/>
+                                    <button type="button" class="bg-primary text-on-primary px-4 py-2 rounded font-label-md text-label-md hover:bg-primary-container transition-colors flex items-center gap-1 font-semibold shrink-0" onclick="addUrlImage()">
+                                        <span class="material-symbols-outlined text-[18px]">add</span> Add URL
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-span-1 md:col-span-2 flex justify-end mt-4">
+                                <button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center gap-2" type="submit" id="submit-btn">
+                                    Save to Catalog
+                                    <span class="material-symbols-outlined text-sm">check</span>
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                    <!-- Business Profile Card -->
+                    <section class="lg:col-span-1 bg-surface-container-lowest rounded-xl p-8 admin-shadow border border-surface-container-high flex flex-col">
+                        <div class="flex items-center justify-between mb-8 border-b border-outline-variant pb-4">
+                            <h3 class="font-headline-md text-headline-md text-primary">Business Profile</h3>
+                            <button class="text-secondary hover:bg-secondary/10 p-2 rounded-full transition-colors" title="Edit Profile" onclick="openProfileModal()">
+                                <span class="material-symbols-outlined">edit</span>
+                            </button>
+                        </div>
+                        <div class="flex-1 flex flex-col gap-6">
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-surface-variant text-primary p-3 rounded-full shrink-0">
+                                    <span class="material-symbols-outlined">store</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-label-md text-label-md text-on-surface mb-1">Showroom Location</h4>
+                                    <p class="font-body-md text-body-md text-on-surface-variant whitespace-pre-line" id="admin-profile-address">Loading showroom address...</p>
+                                    <button class="text-sm text-secondary hover:underline mt-1 font-label-sm text-label-sm" onclick="openProfileModal()">Update Address</button>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-[#25D366]/20 text-[#128C7E] p-3 rounded-full shrink-0">
+                                    <span class="material-symbols-outlined">chat</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-label-md text-label-md text-on-surface mb-1">WhatsApp Inquiry</h4>
+                                    <p class="font-body-md text-body-md text-on-surface-variant" id="admin-profile-whatsapp">Loading WhatsApp number...</p>
+                                    <button class="text-sm text-secondary hover:underline mt-1 font-label-sm text-label-sm" onclick="openProfileModal()">Edit Number</button>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-surface-variant text-primary p-3 rounded-full shrink-0">
+                                    <span class="material-symbols-outlined">call</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-label-md text-label-md text-on-surface mb-1">Landline Inquiry</h4>
+                                    <p class="font-body-md text-body-md text-on-surface-variant" id="admin-profile-landline">Loading landline...</p>
+                                </div>
+                            </div>
+                            <!-- Showroom Operating Hours & Live Status -->
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-surface-variant text-primary p-3 rounded-full shrink-0 flex items-center justify-center">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2 flex-wrap mb-1.5">
+                                        <h4 class="font-label-md text-label-md text-on-surface">Showroom Hours</h4>
+                                        <div id="admin-live-status-badge"></div>
+                                    </div>
+                                    <div id="admin-profile-timings" class="text-xs text-on-surface-variant space-y-1">
+                                        <!-- Day-wise list rendered dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Small atmospheric map image -->
+                            <div class="mt-auto pt-6">
+                                <div class="w-full h-32 rounded-lg overflow-hidden relative">
+                                    <img alt="Ahmedabad Map Location" class="w-full h-full object-cover grayscale opacity-60 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkRE7ju1niDsbRXlxzcWcns93zeVc9l2yibnbMrpROClxbH-PgmWaO3Wsuxr4qbUR_gvGCDiCqkAIsXAFJ84Cpy7eSOzl_JW4xgl7FlKelFqizzFKf1IEpbQD1IFT2XgFjc7Rlsemj8pWP38FB7n84WUkNrtFU2GVR77LrlSUT8fmgakaJzHGVv4-LKCypGtVU5HrL8-5XrfIVz7Lm12VU2IvDMmoCsr71Jqpb7wXuOfMYBWbxXGpiV8n8TyagtpBjaxUZ8PHxDzdJ"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2 flex items-center gap-1 text-primary font-label-sm text-label-sm bg-surface-container-lowest/80 px-2 py-1 rounded backdrop-blur-sm">
+                                        <span class="material-symbols-outlined text-[16px]">location_on</span>
+                                        Primary Hub
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Active Inventory Grid -->
+                <section class="bg-surface-container-lowest rounded-xl p-8 admin-shadow border border-surface-container-high" id="active-inventory-section">
+                    <div class="flex items-center justify-between mb-8 border-b border-outline-variant pb-4">
+                        <div>
+                            <h3 class="font-headline-md text-headline-md text-primary">Active Showroom Inventory</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant mt-1">Recently added collections live on the showroom portal. Click images to zoom.</p>
+                        </div>
+                        <div class="relative hidden sm:block">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                            <input class="pl-10 pr-4 py-2 bg-surface rounded-full border border-outline-variant focus:border-primary focus:ring-0 text-sm w-64 transition-colors" placeholder="Search by code..." type="text" id="admin-search-input" oninput="handleSearch(this.value)"/>
+                        </div>
+                    </div>
+                    <!-- Masonry-style Grid for Products -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="admin-products-grid">
+                        <!-- Dynamically generated active showroom items -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin Management Modal -->
+    <div id="admin-management-modal" class="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-surface-container-lowest border-2 border-outline-variant rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl transform scale-95 transition-all duration-300 relative mx-4">
+            <div class="flex justify-between items-center mb-6 border-b border-outline-variant pb-3">
+                <div>
+                    <h3 class="text-headline-md text-primary font-headline-md text-xl">Admin Management</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-1 text-sm">Create new sub-admins for the showroom portal.</p>
+                </div>
+                <button class="text-on-surface-variant hover:text-error p-1 rounded-full hover:bg-surface-variant/30 self-start" onclick="closeAdminModal()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form id="add-admin-form" onsubmit="handleAddAdmin(event)" class="flex flex-col gap-4">
+                <div class="flex flex-col gap-1.5">
+                    <label for="new-admin-username" class="text-label-sm font-label-sm text-on-surface-variant font-semibold">New Username</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">person_add</span>
+                        <input type="text" id="new-admin-username" required class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/80 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-body-md text-body-md" placeholder="subadmin_name">
+                    </div>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label for="new-admin-password" class="text-label-sm font-label-sm text-on-surface-variant font-semibold">New Password</label>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+                        <input type="password" id="new-admin-password" required minlength="6" class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/80 bg-surface-container-lowest text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all font-body-md text-body-md" placeholder="••••••••">
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3 mt-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold hover:bg-primary/95 transition-all shadow-md flex items-center justify-center gap-2">
+                    Create Admin
+                    <span class="material-symbols-outlined text-[18px]">add</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Business Profile Editing Modal -->
+    <div id="profile-modal" class="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-surface-container-lowest border-2 border-outline-variant rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl transform scale-95 transition-all duration-300">
+            <div class="flex justify-between items-center mb-6 border-b border-outline-variant pb-3">
+                <h3 class="text-headline-md text-primary font-headline-md text-xl">Edit Business Profile</h3>
+                <button class="text-on-surface-variant hover:text-error p-1 rounded-full hover:bg-surface-variant/30" onclick="closeProfileModal()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form onsubmit="handleProfileSubmit(event)" class="space-y-6">
+                <!-- Basic Info Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-primary mb-1" for="modal-showroom-name">Showroom Name</label>
+                        <input required type="text" id="modal-showroom-name" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary font-body-md text-sm"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-primary mb-1" for="modal-landline">Landline Phone</label>
+                        <input type="text" id="modal-landline" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary font-body-md text-sm"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-primary mb-1" for="modal-email">Contact Email Address</label>
+                        <input required type="email" id="modal-email" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary font-body-md text-sm"/>
+                    </div>
+                </div>
+
+                <!-- Contact Numbers Manager -->
+                <div class="border-t border-outline-variant pt-4">
+                    <h4 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5 font-headline-md">
+                        <span class="material-symbols-outlined text-[20px]">contact_phone</span>
+                        WhatsApp Contact Numbers Manager
+                    </h4>
+                    
+                    <!-- Table showing existing contacts -->
+                    <div class="bg-surface-container-low p-4 rounded-lg mb-4">
+                        <h5 class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">Registered Inquiry Lines</h5>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-outline-variant/60 text-outline uppercase font-semibold">
+                                        <th class="pb-2 w-1/3">Label / Department</th>
+                                        <th class="pb-2">WhatsApp Number</th>
+                                        <th class="pb-2 text-center w-1/4">Primary Status</th>
+                                        <th class="pb-2 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-contacts-tbody">
+                                    <!-- Dynamic rows populated via JS -->
+                                </tbody>
+                            </table>
+                            <div id="no-contacts-msg" class="text-center py-4 text-outline-variant text-xs hidden">
+                                No contact numbers configured. At least one contact number is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Contact Form Inline Grid -->
+                    <div class="bg-surface p-4 rounded-lg border border-outline-variant/40 flex flex-col sm:flex-row gap-3 items-end">
+                        <div class="flex-1 w-full">
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1" for="new-contact-label">Label / Department</label>
+                            <input type="text" id="new-contact-label" placeholder="e.g. Sales Inquiry, Showroom Support" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary text-xs font-semibold"/>
+                        </div>
+                        <div class="flex-1 w-full">
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1" for="new-contact-number">WhatsApp Number</label>
+                            <input type="text" id="new-contact-number" placeholder="e.g. +91 999 888 7776" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary text-xs font-semibold"/>
+                        </div>
+                        <button type="button" class="bg-secondary text-white px-4 py-2.5 rounded text-xs font-semibold hover:bg-secondary/90 transition-colors flex items-center gap-1 shrink-0 w-full sm:w-auto justify-center" onclick="addContactFromModal()">
+                            <span class="material-symbols-outlined text-[16px]">add</span> Add Contact
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-primary mb-1" for="modal-address">Showroom Address Location</label>
+                    <textarea required rows="2" id="modal-address" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary font-body-md text-sm"></textarea>
+                </div>
+
+                <!-- Structured Operating Hours Section -->
+                <div class="border-t border-outline-variant pt-4">
+                    <h4 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[20px]">schedule</span>
+                        Showroom Operating Hours
+                    </h4>
+                    <div class="space-y-3 bg-surface-container-low p-4 rounded-lg">
+                        <!-- Header -->
+                        <div class="hidden sm:grid grid-cols-4 gap-2 text-xs font-semibold text-on-surface-variant uppercase tracking-wider border-b border-outline-variant pb-1">
+                            <div>Day</div>
+                            <div>Open Time</div>
+                            <div>Close Time</div>
+                            <div class="text-center">Closed / Off</div>
+                        </div>
+                        
+                        <!-- Monday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center border-b border-outline-variant/30 pb-2" id="row-monday">
+                            <span class="font-semibold text-sm capitalize">Monday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-monday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-monday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-monday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('monday')"/>
+                                <label for="timing-closed-monday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+
+                        <!-- Tuesday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center border-b border-outline-variant/30 pb-2" id="row-tuesday">
+                            <span class="font-semibold text-sm capitalize">Tuesday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-tuesday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-tuesday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-tuesday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('tuesday')"/>
+                                <label for="timing-closed-tuesday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+
+                        <!-- Wednesday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center border-b border-outline-variant/30 pb-2" id="row-wednesday">
+                            <span class="font-semibold text-sm capitalize">Wednesday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-wednesday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-wednesday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-wednesday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('wednesday')"/>
+                                <label for="timing-closed-wednesday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+
+                        <!-- Thursday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center border-b border-outline-variant/30 pb-2" id="row-thursday">
+                            <span class="font-semibold text-sm capitalize">Thursday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-thursday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-thursday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-thursday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('thursday')"/>
+                                <label for="timing-closed-thursday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+
+                        <!-- Friday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center border-b border-outline-variant/30 pb-2" id="row-friday">
+                            <span class="font-semibold text-sm capitalize">Friday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-friday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-friday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-friday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('friday')"/>
+                                <label for="timing-closed-friday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+
+                        <!-- Saturday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center border-b border-outline-variant/30 pb-2" id="row-saturday">
+                            <span class="font-semibold text-sm capitalize">Saturday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-saturday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-saturday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-saturday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('saturday')"/>
+                                <label for="timing-closed-saturday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+
+                        <!-- Sunday -->
+                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 items-center pb-1" id="row-sunday">
+                            <span class="font-semibold text-sm capitalize">Sunday</span>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Open:</span>
+                                <input type="time" id="timing-open-sunday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs text-outline sm:hidden w-12">Close:</span>
+                                <input type="time" id="timing-close-sunday" class="w-full bg-surface border border-outline-variant rounded p-1.5 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                            </div>
+                            <div class="flex items-center justify-center gap-1.5">
+                                <input type="checkbox" id="timing-closed-sunday" class="rounded text-primary focus:ring-primary h-4 w-4" onchange="toggleTimingRowClosed('sunday')"/>
+                                <label for="timing-closed-sunday" class="text-xs font-medium text-on-surface-variant sm:hidden">Closed</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Holidays Manager -->
+                <div class="border-t border-outline-variant pt-4">
+                    <h4 class="text-sm font-bold text-primary mb-3 flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                        Special Holidays Manager
+                    </h4>
+                    
+                    <!-- Table showing existing holidays -->
+                    <div class="bg-surface-container-low p-4 rounded-lg mb-4">
+                        <h5 class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">Scheduled Closures</h5>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-outline-variant/60 text-outline uppercase font-semibold">
+                                        <th class="pb-2 w-1/3">Date</th>
+                                        <th class="pb-2">Holiday Description</th>
+                                        <th class="pb-2 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-holidays-tbody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                            <div id="no-holidays-msg" class="text-center py-4 text-outline-variant text-xs hidden">
+                                No upcoming special holidays scheduled.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Holiday Form Inline Grid -->
+                    <div class="bg-surface p-4 rounded-lg border border-outline-variant/40 flex flex-col sm:flex-row gap-3 items-end">
+                        <div class="flex-1 w-full">
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1" for="new-holiday-date">Holiday Date</label>
+                            <input type="date" id="new-holiday-date" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                        </div>
+                        <div class="flex-[2] w-full">
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-outline mb-1" for="new-holiday-name">Holiday Name / Reason</label>
+                            <input type="text" id="new-holiday-name" placeholder="e.g. Diwali Office Closure" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary text-xs"/>
+                        </div>
+                        <button type="button" class="bg-secondary text-white px-4 py-2.5 rounded text-xs font-semibold hover:bg-secondary/90 transition-colors flex items-center gap-1 shrink-0 w-full sm:w-auto justify-center" onclick="addHolidayFromModal()">
+                            <span class="material-symbols-outlined text-[16px]">add</span> Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer buttons -->
+                <div class="flex justify-end gap-3 pt-4 border-t border-outline-variant">
+                    <button type="button" class="px-5 py-2 rounded text-on-surface-variant bg-surface-container hover:bg-surface-variant transition-colors text-sm" onclick="closeProfileModal()">Cancel</button>
+                    <button type="submit" class="px-6 py-2 rounded text-on-primary bg-primary hover:bg-primary-container transition-colors text-sm flex items-center gap-1 font-semibold">
+                        <span class="material-symbols-outlined text-[16px]">save</span> Save Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Image Variant Details Editing Modal -->
+    <div id="image-variant-modal" class="fixed inset-0 bg-primary/40 backdrop-blur-xs flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-surface-container-lowest border-2 border-outline-variant rounded-xl max-w-sm w-full p-6 shadow-2xl transform scale-95 transition-all duration-300">
+            <div class="flex justify-between items-center mb-4 border-b border-outline-variant pb-2">
+                <h3 class="text-label-md text-primary font-bold" id="image-variant-title">Edit Image #1 Details</h3>
+                <button type="button" class="text-on-surface-variant hover:text-error p-1 rounded-full hover:bg-surface-variant/30" onclick="closeImageVariantModal()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="flex justify-center aspect-[4/5] w-32 mx-auto rounded overflow-hidden border border-outline-variant bg-surface-container">
+                    <img id="image-variant-preview-img" class="w-full h-full object-cover" src="">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-primary mb-1" for="modal-variant-color">Color (Specific to this image)</label>
+                    <input type="text" id="modal-variant-color" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary font-body-md text-sm" placeholder="Leave empty to use main product color"/>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-primary mb-1" for="modal-variant-size">Size (Specific to this image)</label>
+                    <input type="text" id="modal-variant-size" class="w-full bg-surface border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary font-body-md text-sm" placeholder="Leave empty to use main product size"/>
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 mt-6 pt-2 border-t border-outline-variant">
+                <button type="button" class="bg-surface-variant text-on-surface-variant px-4 py-2 rounded text-xs font-semibold hover:bg-outline-variant/30 transition-colors" onclick="closeImageVariantModal()">Cancel</button>
+                <button type="button" class="bg-primary text-on-primary px-4 py-2 rounded text-xs font-semibold hover:bg-primary/95 transition-colors" onclick="saveImageVariantDetails()">Apply Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Image Variant Details Editing Modal -->
+    <div id="bulk-image-variant-modal" class="fixed inset-0 bg-primary/40 backdrop-blur-xs flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-surface-container-lowest border-2 border-outline-variant rounded-xl max-w-2xl w-full p-6 shadow-2xl transform scale-95 transition-all duration-300 flex flex-col max-h-[85vh]">
+            <div class="flex justify-between items-center mb-4 border-b border-outline-variant pb-2 shrink-0">
+                <h3 class="text-label-md text-primary font-bold text-lg flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[22px]">edit_note</span> Edit Details for All Images
+                </h3>
+                <button type="button" class="text-on-surface-variant hover:text-error p-1 rounded-full hover:bg-surface-variant/30" onclick="closeBulkImageVariantModal()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <!-- Quick actions area -->
+            <div class="mb-4 bg-surface-container-low p-3 rounded-lg border border-outline-variant/40 shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-xs text-on-surface-variant font-medium">
+                    <span class="font-bold text-primary">Pro Tip:</span> Copy Image #1 details to all other images to save typing!
+                </div>
+                <button type="button" class="bg-secondary text-white px-3 py-1.5 rounded text-xs font-semibold hover:bg-secondary/95 transition-all shadow-xs flex items-center gap-1.5" onclick="copyImageDetailsToAll(0)">
+                    <span class="material-symbols-outlined text-[16px]">content_copy</span> Apply Image #1 to All
+                </button>
+            </div>
+
+            <!-- Scrollable list of images -->
+            <div class="flex-1 overflow-y-auto pr-1 space-y-4 py-2" id="bulk-variant-list-container">
+                <!-- Dynamically populated via JS -->
+            </div>
+
+            <div class="flex justify-between items-center mt-6 pt-3 border-t border-outline-variant shrink-0">
+                <span class="text-xs text-outline italic">Empty values inherit main product color/size</span>
+                <div class="flex gap-2">
+                    <button type="button" class="bg-surface-variant text-on-surface-variant px-4 py-2 rounded text-xs font-semibold hover:bg-outline-variant/30 transition-colors" onclick="closeBulkImageVariantModal()">Cancel</button>
+                    <button type="button" class="bg-primary text-on-primary px-5 py-2 rounded text-xs font-semibold hover:bg-primary/95 transition-colors flex items-center gap-1 shadow-sm" onclick="saveBulkImageVariantDetails()">
+                        <span class="material-symbols-outlined text-[16px]">check</span> Apply All Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Admin operations -->
+    <div id="admin-toast" class="fixed bottom-6 right-6 bg-surface-container-lowest border-2 border-outline-variant text-primary font-body-md px-6 py-4 shadow-2xl rounded-lg translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+        <span id="toast-icon" class="material-symbols-outlined text-secondary">check_circle</span>
+        <div>
+            <p class="font-semibold text-sm" id="toast-title">Inventory Synced!</p>
+            <p class="text-xs text-on-surface-variant" id="toast-desc">Product catalog successfully updated.</p>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal for Full Image View -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-primary-container/90 backdrop-blur-md flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300 cursor-zoom-out" onclick="closeLightbox()">
+        <div class="absolute top-4 right-4 text-white hover:text-outline-variant transition-colors cursor-pointer p-2 rounded-full hover:bg-white/10 z-50" onclick="closeLightbox(event)">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </div>
+        
+        <!-- Lightbox Chevrons -->
+        <button id="lightbox-prev-btn" class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-14 h-14 rounded-full flex items-center justify-center z-50 transition-all shadow-2xl pointer-events-auto hidden border border-white/10" onclick="event.stopPropagation(); navigateLightbox(-1)">
+            <span class="material-symbols-outlined text-3xl">chevron_left</span>
+        </button>
+        <button id="lightbox-next-btn" class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/75 text-white w-14 h-14 rounded-full flex items-center justify-center z-50 transition-all shadow-2xl pointer-events-auto hidden border border-white/10" onclick="event.stopPropagation(); navigateLightbox(1)">
+            <span class="material-symbols-outlined text-3xl">chevron_right</span>
+        </button>
+
+        <div class="max-w-[90vw] max-h-[95vh] flex flex-col items-center justify-center relative scale-95 transition-all duration-300" id="lightbox-content" onclick="event.stopPropagation()">
+            <div class="overflow-auto max-w-full max-h-[70vh] md:max-h-[78vh] rounded-lg border border-outline-variant/35 bg-surface-container-lowest relative flex" id="lightbox-img-container">
+                <img id="lightbox-img" alt="Full View Kurti" class="max-w-full max-h-[70vh] md:max-h-[78vh] object-contain shadow-2xl transition-all duration-300 cursor-zoom-in origin-center m-auto" onclick="toggleLightboxZoom()">
+            </div>
+            <div class="mt-4 flex flex-col sm:flex-row gap-3 items-center justify-between bg-black/75 px-6 py-3 rounded-2xl text-white backdrop-blur-md shadow-2xl w-full max-w-lg border border-white/10">
+                <div class="text-center sm:text-left flex-1 min-w-0 pr-2">
+                    <p id="lightbox-title" class="font-headline-md text-base leading-tight font-bold text-white truncate"></p>
+                    <p id="lightbox-meta" class="font-body-md text-xs text-outline-variant mt-0.5 truncate"></p>
+                </div>
+                <div class="flex gap-2 shrink-0">
+                    <button id="lightbox-zoom-btn" class="bg-white/20 hover:bg-white/35 text-white px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 transition-all" onclick="toggleLightboxZoom()">
+                        <span class="material-symbols-outlined text-[16px]" id="zoom-icon">zoom_in</span>
+                        <span id="zoom-text">Zoom</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile side drawer navbar -->
+    <div id="mobile-sidebar" class="fixed inset-0 z-50 pointer-events-none md:hidden transition-all duration-300">
+        <div class="absolute inset-0 bg-primary/20 backdrop-blur-xs opacity-0 transition-opacity duration-300" id="mobile-overlay" onclick="toggleMobileMenu()"></div>
+        <div class="absolute left-0 top-0 bottom-0 w-64 bg-surface-container-low border-r border-outline-variant p-gutter flex flex-col gap-unit transform -translate-x-full transition-transform duration-300 shadow-xl" id="mobile-drawer">
+            <!-- Header -->
+            <div class="mb-8 px-4 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary overflow-hidden shrink-0">
+                    <img alt="Jay Textile Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnTUHMVSvetP20MmGjwWmaVst6JgG4wo5qd98M-DgXVKI1kVws6LVA5wILAUBZFg92nX9O9ub-nGdgsRyTdFS_858JxkBOJZinadEiqJpEoYtk5Cxa5jq-q-T6AW6_lOybI0_5jQ07hJO64tKXG2E5PvoCH8sXZ8HFt8cU5KCz7o35V8EcnvkwcncBT__zNVvGDO7wOQS9CoHy9IJoyt_DoQK2OJt28x1kp1RHVGzbyVQCOKB3PR3nGkZHFzc8DCynYE8_58qGurhz"/>
+                </div>
+                <div>
+                    <h1 class="font-headline-md text-headline-md text-primary truncate leading-tight mobile-brand-name">Jay Textile</h1>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant">Wholesale Admin</p>
+                </div>
+            </div>
+            <!-- Navigation Links -->
+            <div class="flex-1 flex flex-col gap-2 overflow-y-auto">
+                <a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary-fixed dark:bg-primary-container rounded-lg font-bold transition-all cursor-pointer" onclick="toggleMobileMenu()">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                    <span class="font-label-md text-label-md">Dashboard</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" href="#active-inventory-section" onclick="toggleMobileMenu()">
+                    <span class="material-symbols-outlined">inventory_2</span>
+                    <span class="font-label-md text-label-md">Collections</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" onclick="openProfileModal(); toggleMobileMenu();">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span class="font-label-md text-label-md">Settings</span>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/30 rounded-lg transition-all hover:bg-surface-variant/50 cursor-pointer" onclick="openAdminModal(); toggleMobileMenu();">
+                    <span class="material-symbols-outlined">admin_panel_settings</span>
+                    <span class="font-label-md text-label-md">Admin Management</span>
+                </a>
+            </div>
+            <!-- CTA -->
+            <div class="mt-auto pt-4 border-t border-outline-variant">
+                <button class="w-full py-3 px-4 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity" onclick="scrollToForm(); toggleMobileMenu();">
+                    <span class="material-symbols-outlined">add</span>
+                    Add New Collection
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Shared data keys
+        const STORAGE_PRODUCTS_KEY = "jaytextile_products";
+        const STORAGE_PROFILE_KEY = "jaytextile_profile";
+
+        const fallbackProductImage = "https://images.unsplash.com/photo-1606744824163-985d376605aa?w=600&auto=format&fit=crop";
+
+        const defaultProfile = {
+            showroom_name: "Jay Textile",
+            whatsapp_number: "+91 999 888 7776",
+            contact_numbers: [
+                { label: "Showroom Inquiry", number: "+91 999 888 7776", isPrimary: true }
+            ],
+            showroom_address: "A/22,23,24, 1st Floor, Sumel Business Park II,\nKankaria, Ahmedabad, Gujarat 380022",
+            business_hours: "Mon - Sat: 11:00 AM - 8:00 PM\nSunday: Closed",
+            email: "inquiry@jaytextile.in",
+            landline: "079 2345 6789",
+            timings: {
+                monday: { open: "11:00", close: "20:00", closed: false },
+                tuesday: { open: "11:00", close: "20:00", closed: false },
+                wednesday: { open: "11:00", close: "20:00", closed: false },
+                thursday: { open: "11:00", close: "20:00", closed: false },
+                friday: { open: "11:00", close: "20:00", closed: false },
+                saturday: { open: "11:00", close: "20:00", closed: false },
+                sunday: { open: "11:00", close: "20:00", closed: true }
+            },
+            special_holidays: [
+                { date: "2026-08-15", name: "Independence Day" },
+                { date: "2026-10-02", name: "Gandhi Jayanti" }
+            ]
+        };
+
+        const defaultProducts = [
+            {
+                title: "JT-3513",
+                fabric: "Slub Cotton",
+                type: "Jaipuri Collection",
+                tag: "New Arrival",
+                inStock: true,
+                details: "4 Pcs Set",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBTGF54hDdnohvtUWK2-PxbMYkoxEr_x-pysJt7wWvL-hvl5cnn6tqX7dAU0JA_U6qkXL0R3lrFsE7iP8_jncMnzJqKyJTPYIDbxRGzE6_95Cwhgz8tYgl0SWzeEgON0AaF0s-7os7Dpqu6X2-12GsTobchoqEy-Qx9KKSG0E-w9oqsm7WnX5l-NS8LqEZr46rwKESbfNSvPS_7Fr6Dp2NZFlXfVglFsNyqfU9rEQ_yPTz701ekcRu2O2LSlOwbEc64QhXaimgSGd0z"
+            },
+            {
+                title: "JT-4220",
+                fabric: "Pure Rayon",
+                type: "Embroidery Work",
+                tag: "Trending",
+                inStock: true,
+                details: "6 Pcs Set",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAgAAed6QmJpaDKsT7QubtfgGtIhGyPBKLdQ3t-iOzy9WshP2uEtjy3w2-iAXC9WfyfDflnuI6e0DSy6gBg5wDX0w79buYGUoUg-_YePUM2z3kONcvCIpB0zE7CjxRI5gDF5zOvEql-doncSEoyRx-9qcAHNf8GDoYmLXK1TobUB6yJ6EGoAC2TjeDhvbXgwkvd8iXc1bCQOUEW2q9kHlVeUCm-_p0KwZwqHybZWlOoae2q1nDdGP9L9AyxIaKW_j78FGZWFvJ4twJD"
+            },
+            {
+                title: "AJ-202",
+                fabric: "Modal Silk",
+                type: "Ajrakh Print",
+                tag: "Trending",
+                inStock: false,
+                details: "Single Pcs",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBm-TOQDbqkeV_ETNLN6KGaZXeWZ6Q65JiWjEVZ-x_N-GOaFWP7_cR-aL0xz4q2EC_6UdTvPrIYRt3H5gbkwQuHUgYQW3QuCPvK7MP_ddPuClMVbTQanswGayPMmHwbnum0PEPYeKTKkdRmLdWW1fLJ14O06oA4WFZx-XwNFAOQf-c6y9WXKqrjxZxy3vVQ5RE3NSgfgoV9fStdGsnU2S4M2V3YM3w7bl5g2dno_YtxdzKD3j-AltGcaBaccqlF88s6KHPhSmjSZ_g-"
+            },
+            {
+                title: "MD-401",
+                fabric: "Muslin Dobby",
+                type: "Festive",
+                tag: "",
+                inStock: true,
+                details: "8 Pcs Set",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAKxRwNm1tnqF06NWLB99FCdozF2ShPw7zLpPItQCYHNwUfORXmJ4rM4tcQ2TvQ3JsLRa3ebMSL1KczMcwkqe6YpjflS0QIg5UEQ4A-XZIcsRtELD3wXT2gX52XjuH9PRFq7Mk1Slt2ZWHm_P5VDHSbSAF_FWPUF40GYc7lscI6dnAM488c8MVYR8BWpGydbR4nVVcOy-R83rCRvxd5_JB5Z0NSiqQbv3jXa_T7TsEitbkxUiwxxcRJukpnU6C28viKPJ8DooxX29Ag"
+            },
+            {
+                title: "JT-5011",
+                fabric: "Chanderi Silk",
+                type: "Party Wear",
+                tag: "",
+                inStock: true,
+                details: "4 Pcs Set",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAHW-HDmOy8PqEpWLosnsmdivBCfQ0b8sIH3p54zXMpKwmwe41pqKrBZu1dzYAOspSXlVMm21qIcAcb0-K_a2wukjkPk0P0YMeZL7pHWAfvWQ8q2lUp-E8EiJX8Cl6Ya5oTIrvZM8skRAHBfGEuBj1-Mc3tI7JK3g00TSRfdJlprGvXeDb00ql9t2OfGvI9QWeX7x3lcqdeiG4rHCD7jiU_RudBUknV8Imn9-_2zOSMrlXaXMiJm5VJ2DsU0ZZyGScch6tGa3Az6z2y"
+            },
+            {
+                title: "JT-1192",
+                fabric: "Hand Block",
+                type: "Cotton",
+                tag: "",
+                inStock: true,
+                details: "4 Pcs Set",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtBjH-JFciJt2TMUIko4ciDpf8JwbVhIJSKH8nS8PDFNQ53wzltyc69jIW7ISS7hQoCw0XqP_Hk8a6CdxvN3IbnrBFtWEc9yoXiDAiql0hAdP-Ive4dPnpikglilrA2rOJvyDBvsRcBI3ZYOOWQTGsgkjc9ZgqMhxLBkltWCxZc-qBL1DzNZa0qWuJJ8ZTyNf53-L-kL5v4oh5YOCy--5R3gGg5JmNSDzYtHfV1Jy12GuAJb4b8xK9Z0ptv3RcQYVWgskFCo8ycrWK"
+            }
+        ];
+
+        // Track state variables
+        let editingProductIndex = -1;
+        let editingProductId = ''; // Supabase UUID
+        let uploadedImagesArray = [];
+        let tempHolidays = [];
+        let tempContacts = [];
+        let isAuthenticated = false;
+
+        // Seeding checks for Local Storage demo fallback
+        if (!localStorage.getItem(STORAGE_PROFILE_KEY)) {
+            localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(defaultProfile));
+        }
+        if (!localStorage.getItem(STORAGE_PRODUCTS_KEY)) {
+            localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(defaultProducts));
+        }
+
+        // Global lists for operations
+        let products = [];
+        let profile = null;
+
+        // Normalizes product images into { url, color, size } objects
+        function getNormalizedImages(item) {
+            let list = [];
+            if (item.images && Array.isArray(item.images)) {
+                list = item.images;
+            } else if (item.image) {
+                list = [item.image];
+            } else {
+                list = [fallbackProductImage];
+            }
+            return list.map(img => {
+                if (typeof img === 'string') {
+                    return { url: img, color: '', size: '' };
+                } else if (img && typeof img === 'object') {
+                    return {
+                        url: img.url || fallbackProductImage,
+                        color: img.color || '',
+                        size: img.size || ''
+                    };
+                }
+                return { url: fallbackProductImage, color: '', size: '' };
+            });
+        }
+
+        // Toast Trigger
+        function showToast(title, desc, isError = false) {
+            const toast = document.getElementById('admin-toast');
+            const icon = document.getElementById('toast-icon');
+            
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-desc').textContent = desc;
+
+            if (isError) {
+                icon.textContent = "error";
+                icon.className = "material-symbols-outlined text-error";
+            } else {
+                icon.textContent = "check_circle";
+                icon.className = "material-symbols-outlined text-secondary";
+            }
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        // Clean WhatsApp number
+        function cleanPhone(num) {
+            return num ? num.replace(/\D/g, '') : '';
+        }
+
+        // Operational calculations replicated from landing page
+        function getShowroomStatus(profileData) {
+            const now = new Date();
+            const yyyy = now.getFullYear();
+            const mm = String(now.getMonth() + 1).padStart(2, '0');
+            const dd = String(now.getDate()).padStart(2, '0');
+            const todayStr = `${yyyy}-${mm}-${dd}`;
+            
+            const holidays = profileData.special_holidays || [];
+            const todayHoliday = holidays.find(h => h.date === todayStr);
+            if (todayHoliday) {
+                return {
+                    isOpen: false,
+                    label: "Closed (Holiday)",
+                    detail: `Special Holiday: ${todayHoliday.name}`,
+                    isHoliday: true,
+                    holidayName: todayHoliday.name
+                };
+            }
+            
+            const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            const currentDayName = dayNames[now.getDay()];
+            const timings = profileData.timings || defaultProfile.timings;
+            const dayConfig = timings[currentDayName];
+            
+            if (!dayConfig || dayConfig.closed) {
+                return {
+                    isOpen: false,
+                    label: "Closed Now",
+                    detail: "Weekly Off",
+                    isHoliday: false
+                };
+            }
+            
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+            const [openH, openM] = dayConfig.open.split(":").map(Number);
+            const [closeH, closeM] = dayConfig.close.split(":").map(Number);
+            
+            const openMinutes = openH * 60 + openM;
+            const closeMinutes = closeH * 60 + closeM;
+            
+            if (currentMinutes >= openMinutes && currentMinutes < closeMinutes) {
+                return {
+                    isOpen: true,
+                    label: "Open Now",
+                    detail: `Closes at ${formatTime12h(dayConfig.close)}`,
+                    isHoliday: false
+                };
+            } else {
+                return {
+                    isOpen: false,
+                    label: "Closed Now",
+                    detail: `Opens at ${formatTime12h(dayConfig.open)}`,
+                    isHoliday: false
+                };
+            }
+        }
+
+        function formatTime12h(timeStr) {
+            if (!timeStr) return "";
+            const [h, m] = timeStr.split(":").map(Number);
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            const displayH = h % 12 || 12;
+            const displayM = String(m).padStart(2, '0');
+            return `${displayH}:${displayM} ${ampm}`;
+        }
+
+        // Update profile visual texts
+        function renderProfile() {
+            if (!profile) profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
+            
+            // Seed timings if missing
+            if (!profile.timings) {
+                profile.timings = defaultProfile.timings;
+                profile.special_holidays = defaultProfile.special_holidays;
+                localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(profile));
+            }
+
+            // Seed contact numbers if missing or empty
+            if (!profile.contact_numbers || !Array.isArray(profile.contact_numbers) || profile.contact_numbers.length === 0) {
+                profile.contact_numbers = [
+                    { label: "Showroom Inquiry", number: profile.whatsapp_number || defaultProfile.whatsapp_number, isPrimary: true }
+                ];
+                localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(profile));
+            }
+
+            document.getElementById('sidebar-brand-name').textContent = profile.showroom_name;
+            document.querySelector('.mobile-brand-name').textContent = profile.showroom_name;
+            document.getElementById('header-brand-title').textContent = `${profile.showroom_name} Ahmedabad Admin`;
+            document.getElementById('admin-profile-address').textContent = profile.showroom_address;
+            
+            // Render all configured contact numbers elegantly in WhatsApp section
+            const whatsappContainer = document.getElementById('admin-profile-whatsapp');
+            if (whatsappContainer) {
+                whatsappContainer.innerHTML = profile.contact_numbers.map(c => {
+                    const badge = c.isPrimary ? ' <span class="bg-primary/10 text-primary border border-primary/20 text-[10px] px-1.5 py-0.2 rounded font-semibold ml-1">Primary</span>' : '';
+                    return `<div class="mb-1 text-sm"><span class="font-semibold text-primary">${c.label}:</span> ${c.number}${badge}</div>`;
+                }).join('');
+            }
+
+            document.getElementById('admin-profile-landline').textContent = profile.landline;
+
+            // Live status badge
+            const status = getShowroomStatus(profile);
+            const statusBadge = document.getElementById('admin-live-status-badge');
+            if (statusBadge) {
+                if (status.isOpen) {
+                    statusBadge.className = "flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300";
+                    statusBadge.innerHTML = `<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Open Now`;
+                } else {
+                    statusBadge.className = "flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-800 border border-rose-300";
+                    statusBadge.innerHTML = `<span class="w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span> ${status.label}`;
+                }
+            }
+
+            // Day-wise operating hours list
+            const timingsList = document.getElementById('admin-profile-timings');
+            if (timingsList) {
+                timingsList.innerHTML = '';
+                const dayNames = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+                const daysDisplayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+                const todayIndex = (new Date().getDay() + 6) % 7;
+
+                dayNames.forEach((day, index) => {
+                    const dayConfig = profile.timings[day] || defaultProfile.timings[day];
+                    const isToday = index === todayIndex;
+                    const timeStr = dayConfig.closed
+                        ? '<span class="text-rose-600 font-semibold">Closed</span>'
+                        : `${formatTime12h(dayConfig.open)} - ${formatTime12h(dayConfig.close)}`;
+
+                    const li = document.createElement('div');
+                    li.className = `flex justify-between items-center py-1 px-2 rounded transition-all duration-300 ${isToday ? 'bg-primary/10 border border-outline-variant/35 font-semibold text-primary shadow-sm' : ''}`;
+                    li.innerHTML = `
+                        <span class="capitalize flex items-center gap-1">
+                            ${daysDisplayNames[index]}
+                            ${isToday ? '<span class="bg-primary text-[8px] text-white px-1 py-0.2 rounded font-bold scale-90">Today</span>' : ''}
+                        </span>
+                        <span>${timeStr}</span>
+                    `;
+                    timingsList.appendChild(li);
+                });
+            }
+
+            if (!window.statusIntervalId) {
+                window.statusIntervalId = setInterval(() => {
+                    renderProfile();
+                }, 30000);
+            }
+        }
+
+        // Render dynamic grid products
+        function scrollSlider(idx, dir) {
+            const slider = document.getElementById(`slider-${idx}`);
+            if (!slider) return;
+            const scrollAmt = slider.clientWidth;
+            slider.scrollBy({ left: scrollAmt * dir, behavior: 'smooth' });
+        }
+
+        function goToSlide(idx, slideIdx) {
+            const slider = document.getElementById(`slider-${idx}`);
+            if (!slider) return;
+            const scrollAmt = slider.clientWidth;
+            slider.scrollTo({ left: scrollAmt * slideIdx, behavior: 'smooth' });
+        }
+
+        function updateSliderDots(idx) {
+            const slider = document.getElementById(`slider-${idx}`);
+            if (!slider) return;
+            const activeIndex = Math.round(slider.scrollLeft / slider.clientWidth);
+            const dots = document.querySelectorAll(`.slider-dot-${idx}`);
+            dots.forEach((dot, dotIdx) => {
+                if (dotIdx === activeIndex) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white', 'scale-125');
+                } else {
+                    dot.classList.remove('bg-white', 'scale-125');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+        }
+
+        // Render Showroom inventory
+        function renderProducts(searchFilter = '') {
+            if (!products || products.length === 0) {
+                products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            }
+            const grid = document.getElementById('admin-products-grid');
+            grid.innerHTML = '';
+
+            const filtered = products.filter(p => 
+                p.title.toLowerCase().includes(searchFilter.toLowerCase()) || 
+                p.fabric.toLowerCase().includes(searchFilter.toLowerCase()) || 
+                p.type.toLowerCase().includes(searchFilter.toLowerCase())
+            );
+
+            filtered.forEach((item) => {
+                const index = products.indexOf(item);
+                const article = document.createElement('article');
+                article.className = 'group relative bg-surface rounded-lg overflow-hidden border border-outline-variant hover-gold-border transition-all duration-300 admin-shadow flex flex-col h-full';
+
+                // Stock badges
+                const stockEl = item.inStock
+                    ? `<div class="absolute top-2 right-2 bg-secondary text-on-secondary px-2.5 py-1 rounded-full font-label-sm text-label-sm shadow-sm flex items-center gap-1 z-10">
+                          <span class="w-1.5 h-1.5 bg-white rounded-full"></span> In Stock
+                       </div>`
+                    : `<div class="absolute top-2 right-2 bg-surface-variant text-on-surface-variant px-2.5 py-1 rounded-full font-label-sm text-label-sm shadow-sm border border-outline-variant z-10">
+                          Sample Only
+                       </div>`;
+
+                // Tag badge overlay
+                let tagEl = '';
+                if (item.tag) {
+                    const tagBg = item.tag.toLowerCase().includes('trending') ? 'bg-secondary' : 'bg-primary';
+                    tagEl = `<span class="font-label-sm text-label-sm text-white ${tagBg} px-2.5 py-0.5 rounded border border-outline-variant/30">${item.tag}</span>`;
+                }
+
+                const images = getNormalizedImages(item);
+                const hasMultiple = images.length > 1;
+
+                let imageAreaHtml = '';
+                if (hasMultiple) {
+                    imageAreaHtml = `
+                    <div class="aspect-[4/5] w-full overflow-hidden relative bg-surface-container-low cursor-zoom-in group/slider">
+                        <!-- Slider container -->
+                        <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-smooth w-full h-full" id="slider-${index}" onscroll="updateSliderDots(${index})">
+                            ${images.map((img, imgIdx) => `
+                                <img alt="${item.title}" class="w-full h-full object-cover shrink-0 snap-start group-hover:scale-105 transition-transform duration-700 ease-out" src="${img.url}" onclick="openLightboxForIndex(${index}, ${imgIdx})">
+                            `).join('')}
+                        </div>
+                        
+                        <!-- Hover Overlay badge -->
+                        <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center z-10">
+                            <div class="bg-white/90 text-primary py-1.5 px-3 rounded-full shadow-lg flex items-center gap-1 text-xs font-semibold backdrop-blur-xs transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                <span class="material-symbols-outlined text-[16px]">zoom_in</span>
+                                <span>Click to View Full</span>
+                            </div>
+                        </div>
+
+                        <!-- Chevrons for slider navigation -->
+                        <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/85 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all z-20 shadow-md animate-fade-in" onclick="event.stopPropagation(); scrollSlider(${index}, -1)">
+                            <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                        </button>
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/85 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all z-20 shadow-md animate-fade-in" onclick="event.stopPropagation(); scrollSlider(${index}, 1)">
+                            <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                        </button>
+
+                        <!-- Slider dot indicators -->
+                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20 bg-black/45 px-2.5 py-1 rounded-full backdrop-blur-xs">
+                            ${images.map((_, imgIdx) => `
+                                <span class="slider-dot-${index} w-1.5 h-1.5 rounded-full transition-all duration-300 ${imgIdx === 0 ? 'bg-white scale-125' : 'bg-white/50'}" onclick="event.stopPropagation(); goToSlide(${index}, ${imgIdx})"></span>
+                            `).join('')}
+                        </div>
+                        
+                        ${stockEl}
+                    </div>
+                    `;
+                } else {
+                    imageAreaHtml = `
+                    <div class="aspect-[4/5] w-full overflow-hidden relative bg-surface-container-low cursor-zoom-in" onclick="openLightbox('${images[0].url}', '${item.title}', '${item.fabric}', '${item.type}')">
+                        <img alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="${images[0].url}"/>
+                        <div class="absolute inset-0 bg-primary/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="bg-white/90 text-primary py-1.5 px-3 rounded-full shadow-lg flex items-center gap-1 text-xs font-semibold backdrop-blur-xs transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                <span class="material-symbols-outlined text-[16px]">zoom_in</span>
+                                <span>Click to View Full</span>
+                            </div>
+                        </div>
+                        ${stockEl}
+                    </div>
+                    `;
+                }
+
+                article.innerHTML = `
+                    ${imageAreaHtml}
+                    <div class="p-4 flex-1 flex flex-col bg-surface-container-lowest">
+                        <div class="flex justify-between items-start mb-2 gap-2 flex-wrap">
+                            <h4 class="font-headline-md text-headline-md text-primary text-lg font-bold">${item.title}</h4>
+                            ${tagEl}
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm flex-1 font-medium">${item.fabric} • ${item.type}</p>
+                        ${item.details ? `<p class="text-outline text-xs mb-3 italic">${item.details}</p>` : ''}
+                        <div class="flex gap-2 pt-4 border-t border-outline-variant mt-auto">
+                            <button class="flex-1 bg-surface-variant text-primary py-2 rounded font-label-md text-label-md hover:bg-outline-variant/35 transition-colors flex items-center justify-center gap-1 font-semibold" onclick="editProduct(${index})">
+                                <span class="material-symbols-outlined text-[18px]">edit</span> Edit
+                            </button>
+                            <button class="p-2 text-error hover:bg-error/10 rounded transition-colors" title="Remove Item" onclick="deleteProduct(${index})">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(article);
+            });
+
+            // Add the Add-New ghost card placeholder
+            const ghost = document.createElement('article');
+            ghost.className = 'relative rounded-lg border-2 border-dashed border-outline-variant bg-surface-container-low/50 hover:bg-surface-variant/30 transition-all flex flex-col items-center justify-center min-h-[300px] cursor-pointer group';
+            ghost.onclick = scrollToForm;
+            ghost.innerHTML = `
+                <div class="w-14 h-14 rounded-full bg-surface flex items-center justify-center mb-3 shadow-sm group-hover:scale-110 transition-transform duration-300 border border-outline-variant/50">
+                    <span class="material-symbols-outlined text-primary text-2xl font-bold">add</span>
+                </div>
+                <p class="font-label-md text-label-md text-primary font-bold">Add Collection</p>
+                <p class="text-xs text-on-surface-variant mt-1 opacity-70">Focus collection form</p>
+            `;
+            grid.appendChild(ghost);
+        }
+
+        // Live searching trigger
+        function handleSearch(val) {
+            renderProducts(val);
+        }
+
+        // Focus scrolling to input form
+        function scrollToForm() {
+            document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('product-title').focus();
+        }
+
+        // Toggles a timing row visually and handles disable/value clears
+        function toggleTimingRowClosed(day) {
+            const isClosed = document.getElementById(`timing-closed-${day}`).checked;
+            const openInput = document.getElementById(`timing-open-${day}`);
+            const closeInput = document.getElementById(`timing-close-${day}`);
+            const row = document.getElementById(`row-${day}`);
+            
+            if (isClosed) {
+                openInput.disabled = true;
+                closeInput.disabled = true;
+                openInput.classList.add('opacity-40');
+                closeInput.classList.add('opacity-40');
+            } else {
+                openInput.disabled = false;
+                closeInput.disabled = false;
+                openInput.classList.remove('opacity-40');
+                closeInput.classList.remove('opacity-40');
+                if (!openInput.value) openInput.value = "11:00";
+                if (!closeInput.value) closeInput.value = "20:00";
+            }
+        }
+
+        // Holiday CRUD table visual update
+        function renderHolidaysTable() {
+            const tbody = document.getElementById('admin-holidays-tbody');
+            const noMsg = document.getElementById('no-holidays-msg');
+            tbody.innerHTML = '';
+
+            if (tempHolidays.length === 0) {
+                noMsg.classList.remove('hidden');
+                return;
+            } else {
+                noMsg.classList.add('hidden');
+            }
+
+            tempHolidays.forEach((holiday, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-outline-variant/30 text-on-surface-variant text-xs";
+                tr.innerHTML = `
+                    <td class="py-2.5 font-semibold">${holiday.date}</td>
+                    <td class="py-2.5">${holiday.name}</td>
+                    <td class="py-2.5 text-right">
+                        <button type="button" class="text-error hover:bg-error/10 p-1.5 rounded transition-colors" onclick="deleteHoliday(${index})">
+                            <span class="material-symbols-outlined text-[16px]">delete</span>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function addHolidayFromModal() {
+            const dateInput = document.getElementById('new-holiday-date');
+            const nameInput = document.getElementById('new-holiday-name');
+            const date = dateInput.value;
+            const name = nameInput.value.trim();
+
+            if (!date || !name) {
+                showToast("Invalid Holiday Info", "Please provide both date and holiday description.", true);
+                return;
+            }
+
+            if (tempHolidays.some(h => h.date === date)) {
+                showToast("Duplicate Entry", "A special closure is already scheduled for this date.", true);
+                return;
+            }
+
+            tempHolidays.push({ date, name });
+            tempHolidays.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            dateInput.value = "";
+            nameInput.value = "";
+            renderHolidaysTable();
+            showToast("Holiday Added", `"${name}" added to list.`);
+        }
+
+        function deleteHoliday(index) {
+            const removed = tempHolidays.splice(index, 1);
+            renderHolidaysTable();
+            showToast("Holiday Removed", `Holiday "${removed[0].name}" removed.`);
+        }
+
+        // Contact Numbers Manager Helpers
+        function renderContactsTable() {
+            const tbody = document.getElementById('admin-contacts-tbody');
+            const noMsg = document.getElementById('no-contacts-msg');
+            
+            if (!tbody) return;
+            
+            tbody.innerHTML = '';
+            
+            if (tempContacts.length === 0) {
+                noMsg.classList.remove('hidden');
+                return;
+            } else {
+                noMsg.classList.add('hidden');
+            }
+            
+            tempContacts.forEach((contact, idx) => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-outline-variant/30 text-xs";
+                
+                // Label
+                const tdLabel = document.createElement('td');
+                tdLabel.className = "py-2.5 pr-2 font-semibold text-on-surface";
+                tdLabel.textContent = contact.label;
+                
+                // Number
+                const tdNumber = document.createElement('td');
+                tdNumber.className = "py-2.5 text-on-surface-variant font-mono";
+                tdNumber.textContent = contact.number;
+                
+                // Primary Status
+                const tdPrimary = document.createElement('td');
+                tdPrimary.className = "py-2.5 text-center";
+                if (contact.isPrimary) {
+                    tdPrimary.innerHTML = `<span class="bg-primary/20 text-primary border border-primary/40 px-2 py-0.5 rounded-full text-[10px] font-bold inline-block cursor-default">Primary</span>`;
+                } else {
+                    tdPrimary.innerHTML = `<button type="button" onclick="setPrimaryContact(${idx})" class="text-outline hover:text-primary hover:bg-surface-container border border-outline-variant px-2 py-0.5 rounded-full text-[10px] transition-all">Make Primary</button>`;
+                }
+                
+                // Action
+                const tdAction = document.createElement('td');
+                tdAction.className = "py-2.5 text-right";
+                // Show delete button only if it's not the last contact
+                if (tempContacts.length > 1) {
+                    tdAction.innerHTML = `
+                        <button type="button" onclick="deleteContact(${idx})" class="text-rose-500 hover:text-rose-700 hover:bg-rose-50/50 p-1 rounded transition-colors inline-flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[16px]">delete</span>
+                        </button>
+                    `;
+                } else {
+                    tdAction.innerHTML = `<span class="text-outline-variant/60 cursor-not-allowed inline-flex items-center justify-center p-1" title="At least one contact required"><span class="material-symbols-outlined text-[16px]">block</span></span>`;
+                }
+                
+                tr.appendChild(tdLabel);
+                tr.appendChild(tdNumber);
+                tr.appendChild(tdPrimary);
+                tr.appendChild(tdAction);
+                
+                tbody.appendChild(tr);
+            });
+        }
+
+        function addContactFromModal() {
+            const labelInput = document.getElementById('new-contact-label');
+            const numberInput = document.getElementById('new-contact-number');
+            
+            if (!labelInput || !numberInput) return;
+            
+            const label = labelInput.value.trim();
+            const number = numberInput.value.trim();
+            
+            if (!label) {
+                showToast("Validation Error", "Please enter a label or department name.", "error");
+                return;
+            }
+            if (!number) {
+                showToast("Validation Error", "Please enter a valid WhatsApp number.", "error");
+                return;
+            }
+            
+            // Basic number check
+            if (number.length < 8) {
+                showToast("Validation Error", "Please enter a valid phone number.", "error");
+                return;
+            }
+
+            // Check if label already exists (case-insensitive)
+            if (tempContacts.some(c => c.label.toLowerCase() === label.toLowerCase())) {
+                showToast("Validation Error", "A department with this label already exists.", "error");
+                return;
+            }
+
+            // Check if number already exists
+            if (tempContacts.some(c => c.number.replace(/\s+/g, '') === number.replace(/\s+/g, ''))) {
+                showToast("Validation Error", "This contact number is already added.", "error");
+                return;
+            }
+            
+            // If it's the first contact, make it primary automatically
+            const isPrimary = tempContacts.length === 0;
+            
+            tempContacts.push({ label, number, isPrimary });
+            
+            labelInput.value = '';
+            numberInput.value = '';
+            
+            renderContactsTable();
+            showToast("Contact Added", `"${label}" has been added to the contact list.`);
+        }
+
+        function setPrimaryContact(index) {
+            tempContacts.forEach((contact, idx) => {
+                contact.isPrimary = (idx === index);
+            });
+            renderContactsTable();
+            showToast("Primary Status Updated", `"${tempContacts[index].label}" is now the primary contact.`);
+        }
+
+        function deleteContact(index) {
+            if (tempContacts.length <= 1) {
+                showToast("Action Forbidden", "At least one contact is required.", "error");
+                return;
+            }
+            
+            const removed = tempContacts.splice(index, 1);
+            
+            // If we deleted the primary, make the first remaining one primary
+            if (removed[0].isPrimary && tempContacts.length > 0) {
+                tempContacts[0].isPrimary = true;
+                showToast("Primary Status Reset", `"${tempContacts[0].label}" is now primary by default.`);
+            }
+            
+            renderContactsTable();
+            showToast("Contact Removed", `Removed "${removed[0].label}" contact.`);
+        }
+
+        // Modal triggers for Business profile
+        function openProfileModal() {
+            renderProfile(); // Load current profile info
+            document.getElementById('modal-showroom-name').value = profile.showroom_name;
+            document.getElementById('modal-landline').value = profile.landline;
+            document.getElementById('modal-email').value = profile.email;
+            document.getElementById('modal-address').value = profile.showroom_address;
+
+            // Load contacts into temp storage
+            if (profile.contact_numbers && Array.isArray(profile.contact_numbers) && profile.contact_numbers.length > 0) {
+                tempContacts = JSON.parse(JSON.stringify(profile.contact_numbers));
+            } else {
+                tempContacts = [
+                    { label: "Showroom Inquiry", number: profile.whatsapp_number || defaultProfile.whatsapp_number, isPrimary: true }
+                ];
+            }
+            renderContactsTable();
+
+            // Clear inputs for inline form
+            const labelInput = document.getElementById('new-contact-label');
+            const numberInput = document.getElementById('new-contact-number');
+            if (labelInput) labelInput.value = '';
+            if (numberInput) numberInput.value = '';
+
+            // Load structured timings
+            const dayNames = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+            dayNames.forEach(day => {
+                const dayConfig = profile.timings[day] || defaultProfile.timings[day];
+                document.getElementById(`timing-open-${day}`).value = dayConfig.open || "11:00";
+                document.getElementById(`timing-close-${day}`).value = dayConfig.close || "20:00";
+                
+                const closedCheckbox = document.getElementById(`timing-closed-${day}`);
+                closedCheckbox.checked = dayConfig.closed;
+                toggleTimingRowClosed(day);
+            });
+
+            // Load special holidays to temp storage
+            tempHolidays = profile.special_holidays ? [...profile.special_holidays] : [];
+            renderHolidaysTable();
+
+            const modal = document.getElementById('profile-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }
+
+        function closeProfileModal() {
+            const modal = document.getElementById('profile-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        // Render Upload Preview Grid
+        function renderUploadPreviewGrid() {
+            const grid = document.getElementById('upload-preview-grid');
+            const baseVisual = document.getElementById('upload-base-visual');
+            const actions = document.getElementById('preview-grid-actions');
+            grid.innerHTML = '';
+            
+            if (uploadedImagesArray.length === 0) {
+                grid.classList.add('hidden');
+                baseVisual.classList.remove('hidden');
+                if (actions) actions.classList.add('hidden');
+                return;
+            }
+            
+            grid.classList.remove('hidden');
+            baseVisual.classList.add('hidden');
+            if (actions) actions.classList.remove('hidden');
+            
+            uploadedImagesArray.forEach((imgObj, index) => {
+                const imgUrl = typeof imgObj === 'string' ? imgObj : (imgObj.url || fallbackProductImage);
+                const hasCustomDetails = imgObj && (imgObj.color || imgObj.size);
+                
+                const detailsBadges = hasCustomDetails 
+                    ? `<div class="text-[10px] text-primary font-semibold mt-1 truncate" title="Custom color/size set for this image">
+                        ${imgObj.color ? `C: ${imgObj.color}` : ''} ${imgObj.size ? `S: ${imgObj.size}` : ''}
+                       </div>` 
+                    : `<div class="text-[10px] text-on-surface-variant/50 mt-1 italic text-center bg-surface-variant/30 py-0.5 rounded">Same as main</div>`;
+                
+                const item = document.createElement('div');
+                item.className = "flex flex-col bg-surface border border-outline-variant rounded p-2.5 gap-2 shadow-sm relative group/thumb";
+                item.innerHTML = `
+                    <div class="relative aspect-[4/5] rounded overflow-hidden w-full bg-surface-container">
+                        <img class="w-full h-full object-cover" src="${imgUrl}">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                            <button type="button" class="bg-secondary text-white p-1.5 rounded-full hover:scale-110 transition-transform shadow-md" onclick="editThumbnailDetails(${index})" title="Edit details for this image">
+                                <span class="material-symbols-outlined text-[18px]">edit</span>
+                            </button>
+                            <button type="button" class="bg-error text-white p-1.5 rounded-full hover:scale-110 transition-transform shadow-md" onclick="removePendingImage(${index})" title="Remove image">
+                                <span class="material-symbols-outlined text-[18px]">close</span>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-1 left-1 bg-black/60 text-white text-[9px] px-1.5 py-0.5 rounded font-bold">
+                            #${index + 1}
+                        </div>
+                    </div>
+                    ${detailsBadges}
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        // Remove a pending image
+        function removePendingImage(index) {
+            uploadedImagesArray.splice(index, 1);
+            renderUploadPreviewGrid();
+        }
+
+        let activeImageVariantIndex = -1;
+
+        function editThumbnailDetails(idx) {
+            activeImageVariantIndex = idx;
+            const imgObj = uploadedImagesArray[idx];
+            if (!imgObj) return;
+
+            const imgUrl = typeof imgObj === 'string' ? imgObj : (imgObj.url || fallbackProductImage);
+            
+            document.getElementById('image-variant-title').textContent = `Edit Image #${idx + 1} Details`;
+            document.getElementById('image-variant-preview-img').src = imgUrl;
+            document.getElementById('modal-variant-color').value = imgObj.color || '';
+            document.getElementById('modal-variant-size').value = imgObj.size || '';
+
+            const modal = document.getElementById('image-variant-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }
+
+        function closeImageVariantModal() {
+            const modal = document.getElementById('image-variant-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+            activeImageVariantIndex = -1;
+        }
+
+        function saveImageVariantDetails() {
+            if (activeImageVariantIndex === -1) return;
+            const colorVal = document.getElementById('modal-variant-color').value.trim();
+            const sizeVal = document.getElementById('modal-variant-size').value.trim();
+
+            const imgObj = uploadedImagesArray[activeImageVariantIndex];
+            if (imgObj) {
+                if (typeof imgObj === 'string') {
+                    uploadedImagesArray[activeImageVariantIndex] = {
+                        url: imgObj,
+                        color: colorVal,
+                        size: sizeVal
+                    };
+                } else {
+                    imgObj.color = colorVal;
+                    imgObj.size = sizeVal;
+                }
+            }
+
+            closeImageVariantModal();
+            renderUploadPreviewGrid();
+            showToast("Variant Details Updated", `Applied custom details for image #${activeImageVariantIndex + 1}.`);
+        }
+
+        // Add URL external image link
+        function addUrlImage() {
+            const urlInput = document.getElementById('product-image');
+            const url = urlInput.value.trim();
+            if (!url) {
+                showToast("Invalid URL", "Please enter a valid image web address.", true);
+                return;
+            }
+            uploadedImagesArray.push({ url: url, color: '', size: '' });
+            urlInput.value = "";
+            renderUploadPreviewGrid();
+            showToast("URL Added", "External link successfully added to gallery.");
+        }
+
+        // Bulk Image Variant Details Editing triggers and operations
+        function openBulkImageEditModal() {
+            if (uploadedImagesArray.length === 0) {
+                showToast("No Imagery Selected", "Please upload at least one image first.", true);
+                return;
+            }
+            
+            const container = document.getElementById('bulk-variant-list-container');
+            container.innerHTML = '';
+            
+            uploadedImagesArray.forEach((imgObj, index) => {
+                const imgUrl = typeof imgObj === 'string' ? imgObj : (imgObj.url || fallbackProductImage);
+                const colorVal = typeof imgObj === 'string' ? '' : (imgObj.color || '');
+                const sizeVal = typeof imgObj === 'string' ? '' : (imgObj.size || '');
+                
+                const itemRow = document.createElement('div');
+                itemRow.className = "flex flex-col sm:flex-row items-center gap-4 bg-surface p-4 rounded-lg border border-outline-variant/35 shadow-sm";
+                itemRow.innerHTML = `
+                    <div class="relative w-16 h-20 rounded overflow-hidden shrink-0 border border-outline-variant/60 bg-surface-container">
+                        <img class="w-full h-full object-cover" src="${imgUrl}">
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] text-center font-bold py-0.5">
+                            Image #${index + 1}
+                        </div>
+                    </div>
+                    <div class="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-primary mb-1" for="bulk-variant-color-${index}">Color</label>
+                            <input type="text" id="bulk-variant-color-${index}" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary text-xs font-semibold" placeholder="Inherit from main color..." value="${colorVal}"/>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-primary mb-1" for="bulk-variant-size-${index}">Size</label>
+                            <input type="text" id="bulk-variant-size-${index}" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 focus:ring-1 focus:ring-primary focus:border-primary text-xs font-semibold" placeholder="Inherit from main size..." value="${sizeVal}"/>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(itemRow);
+            });
+            
+            const modal = document.getElementById('bulk-image-variant-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }
+        
+        function closeBulkImageVariantModal() {
+            const modal = document.getElementById('bulk-image-variant-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+        
+        function copyImageDetailsToAll(sourceIndex) {
+            const srcColorInput = document.getElementById(`bulk-variant-color-${sourceIndex}`);
+            const srcSizeInput = document.getElementById(`bulk-variant-size-${sourceIndex}`);
+            
+            if (!srcColorInput && !srcSizeInput) {
+                showToast("Error", "Source image details not found.", true);
+                return;
+            }
+            
+            const srcColor = srcColorInput.value.trim();
+            const srcSize = srcSizeInput.value.trim();
+            
+            if (!srcColor && !srcSize) {
+                showToast("No Source Details", "Please fill in some Color or Size details in Image #1 first.", true);
+                return;
+            }
+            
+            uploadedImagesArray.forEach((_, index) => {
+                const targetColorInput = document.getElementById(`bulk-variant-color-${index}`);
+                const targetSizeInput = document.getElementById(`bulk-variant-size-${index}`);
+                if (targetColorInput) targetColorInput.value = srcColor;
+                if (targetSizeInput) targetSizeInput.value = srcSize;
+            });
+            
+            showToast("Details Copied", `Applied Image #1's details to all other images!`, false);
+        }
+        
+        function saveBulkImageVariantDetails() {
+            uploadedImagesArray.forEach((imgObj, index) => {
+                const colorVal = document.getElementById(`bulk-variant-color-${index}`).value.trim();
+                const sizeVal = document.getElementById(`bulk-variant-size-${index}`).value.trim();
+                
+                const url = typeof imgObj === 'string' ? imgObj : (imgObj.url || fallbackProductImage);
+                uploadedImagesArray[index] = {
+                    url: url,
+                    color: colorVal,
+                    size: sizeVal
+                };
+            });
+            
+            closeBulkImageVariantModal();
+            renderUploadPreviewGrid();
+            showToast("Gallery Details Saved", "Updated custom color/size details for all gallery images.");
+        }
+
+        // Canvas compression pipeline supporting multiple uploads
+        function handleFileSelection(files) {
+            if (!files || files.length === 0) return;
+            
+            let processedCount = 0;
+            const totalFiles = files.length;
+            showToast("Processing Images", `Optimizing ${totalFiles} images for fast showroom loading...`, false);
+            
+            Array.from(files).forEach(file => {
+                if (!file.type.startsWith('image/')) {
+                    showToast("Invalid File Type", "Skipping non-image files.", true);
+                    processedCount++;
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const tempImg = new Image();
+                    tempImg.onload = function() {
+                        const maxDimension = 1200;
+                        let width = tempImg.width;
+                        let height = tempImg.height;
+
+                        if (width > maxDimension || height > maxDimension) {
+                            if (width > height) {
+                                height = Math.round((height * maxDimension) / width);
+                                width = maxDimension;
+                            } else {
+                                width = Math.round((width * maxDimension) / height);
+                                height = maxDimension;
+                            }
+                        }
+
+                        const canvas = document.createElement('canvas');
+                        canvas.width = width;
+                        canvas.height = height;
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(tempImg, 0, 0, width, height);
+
+                        // Compress as JPEG
+                        let compressedBase64 = canvas.toDataURL('image/jpeg', 0.8);
+                        if (compressedBase64.length > 2.5 * 1024 * 1024) {
+                            compressedBase64 = canvas.toDataURL('image/jpeg', 0.6);
+                        }
+
+                        uploadedImagesArray.push({ url: compressedBase64, color: '', size: '' });
+                        
+                        processedCount++;
+                        if (processedCount === totalFiles) {
+                            renderUploadPreviewGrid();
+                            showToast("Optimization Complete", `Loaded and compressed all ${totalFiles} items.`);
+                        }
+                    };
+                    tempImg.onerror = function() {
+                        showToast("Load Error", "Failed to process image file.", true);
+                        processedCount++;
+                    };
+                    tempImg.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Setup image file uploader
+        function setupImageUpload() {
+            const dropzone = document.getElementById('upload-zone');
+            const fileInput = document.getElementById('image-file-input');
+
+            dropzone.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFileSelection(e.target.files);
+                }
+            });
+
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropzone.classList.add('bg-surface-variant/70', 'border-primary');
+            });
+
+            dropzone.addEventListener('dragleave', () => {
+                dropzone.classList.remove('bg-surface-variant/70', 'border-primary');
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('bg-surface-variant/70', 'border-primary');
+                if (e.dataTransfer.files.length > 0) {
+                    handleFileSelection(e.dataTransfer.files);
+                }
+            });
+        }
+
+        // Reset image uploads
+        function resetImageUpload() {
+            uploadedImagesArray = [];
+            document.getElementById('image-file-input').value = "";
+            renderUploadPreviewGrid();
+        }
+
+        // Reset the main editor form to base state
+        function resetForm() {
+            editingProductIndex = -1;
+            document.getElementById('product-form').reset();
+            document.getElementById('product-color').value = '';
+            document.getElementById('product-size').value = '';
+            resetImageUpload();
+            document.getElementById('form-heading').textContent = "Add New Collection";
+            document.getElementById('cancel-edit-btn').classList.add('hidden');
+            document.getElementById('submit-btn').innerHTML = `
+                Save to Catalog
+                <span class="material-symbols-outlined text-sm">check</span>
+            `;
+        }
+
+        // Start editing product
+        function editProduct(idx) {
+            editingProductIndex = idx;
+            const p = products[idx];
+
+            document.getElementById('product-title').value = p.title;
+            document.getElementById('category').value = p.type;
+            document.getElementById('material').value = p.fabric;
+            document.getElementById('details').value = p.details || '';
+            document.getElementById('product-stock').value = p.inStock ? 'in-stock' : 'out-of-stock';
+            document.getElementById('product-tag').value = p.tag || '';
+            
+            // Populate Color and Size from product or fallback to first image
+            let colorVal = p.color || '';
+            let sizeVal = p.size || '';
+            
+            if (!colorVal || !sizeVal) {
+                const rawImages = p.images ? [...p.images] : (p.image ? [p.image] : []);
+                if (rawImages.length > 0) {
+                    const firstImg = rawImages[0];
+                    if (firstImg && typeof firstImg === 'object') {
+                        if (!colorVal) colorVal = firstImg.color || '';
+                        if (!sizeVal) sizeVal = firstImg.size || '';
+                    }
+                }
+            }
+            
+            document.getElementById('product-color').value = colorVal;
+            document.getElementById('product-size').value = sizeVal;
+            
+            // Populate image array (normalized to object format)
+            const rawImages = p.images ? [...p.images] : (p.image ? [p.image] : []);
+            uploadedImagesArray = rawImages.map(img => {
+                if (typeof img === 'string') {
+                    return { url: img, color: '', size: '' };
+                } else if (img && typeof img === 'object') {
+                    return {
+                        url: img.url || fallbackProductImage,
+                        color: img.color || '',
+                        size: img.size || ''
+                    };
+                }
+                return { url: fallbackProductImage, color: '', size: '' };
+            });
+            renderUploadPreviewGrid();
+
+            document.getElementById('form-heading').textContent = `Edit Collection: ${p.title}`;
+            document.getElementById('cancel-edit-btn').classList.remove('hidden');
+            document.getElementById('submit-btn').innerHTML = `
+                Update Collection
+                <span class="material-symbols-outlined text-sm">save</span>
+            `;
+
+            scrollToForm();
+        }
+
+        // Delete product item
+        async function deleteProduct(idx) {
+            const p = products[idx];
+            if (confirm(`Are you absolutely sure you want to remove collection "${p.title}" from the showroom catalog?`)) {
+                products.splice(idx, 1);
+                localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(products));
+                renderProducts();
+                showToast("Product Removed", `"${p.title}" has been deleted from active inventory.`);
+            }
+        }
+
+        // Form handler for adding/editing items
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const titleVal = document.getElementById('product-title').value.trim();
+            const categoryVal = document.getElementById('category').value.trim();
+            const materialVal = document.getElementById('material').value.trim();
+            const detailsVal = document.getElementById('details').value.trim();
+            const stockVal = document.getElementById('product-stock').value === 'in-stock';
+            const tagVal = document.getElementById('product-tag').value;
+            const colorVal = document.getElementById('product-color').value.trim();
+            const sizeVal = document.getElementById('product-size').value.trim();
+
+            if (uploadedImagesArray.length === 0) {
+                showToast("No Imagery Selected", "Please select at least one image or link a URL.", true);
+                return;
+            }
+
+            const mappedImages = uploadedImagesArray.map(img => {
+                const url = typeof img === 'string' ? img : (img.url || fallbackProductImage);
+                return {
+                    url: url,
+                    color: img.color || '',
+                    size: img.size || ''
+                };
+            });
+
+            const item = {
+                title: titleVal,
+                fabric: materialVal,
+                type: categoryVal,
+                tag: tagVal,
+                inStock: stockVal,
+                details: detailsVal,
+                color: colorVal,
+                size: sizeVal,
+                images: mappedImages,
+                image: mappedImages[0] ? mappedImages[0].url : fallbackProductImage
+            };
+
+            const dbItem = {
+                title: titleVal,
+                fabric: materialVal,
+                type: categoryVal,
+                tag: tagVal,
+                in_stock: stockVal,
+                details: detailsVal,
+                color: colorVal,
+                size: sizeVal,
+                images: mappedImages,
+                image: mappedImages[0] ? mappedImages[0].url : fallbackProductImage
+            };
+
+            if (editingProductIndex > -1) {
+                products[editingProductIndex] = item;
+                showToast("Collection Updated", `"${titleVal}" updated successfully.`);
+            } else {
+                products.push(item);
+                showToast("Collection Added", `"${titleVal}" added to active inventory.`);
+            }
+            localStorage.setItem(STORAGE_PRODUCTS_KEY, JSON.stringify(products));
+
+            resetForm();
+            renderProducts();
+        }
+
+        // Save profile updates
+        async function handleProfileSubmit(e) {
+            e.preventDefault();
+
+            if (tempContacts.length === 0) {
+                showToast("Save Error", "Please configure at least one WhatsApp contact number.", "error");
+                return;
+            }
+
+            // Find primary contact
+            let primaryContact = tempContacts.find(c => c.isPrimary);
+            if (!primaryContact) {
+                primaryContact = tempContacts[0];
+                primaryContact.isPrimary = true;
+            }
+
+            const dayNames = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+            const timings = {};
+            
+            dayNames.forEach(day => {
+                const openVal = document.getElementById(`timing-open-${day}`).value;
+                const closeVal = document.getElementById(`timing-close-${day}`).value;
+                const closedVal = document.getElementById(`timing-closed-${day}`).checked;
+                timings[day] = {
+                    open: openVal || "11:00",
+                    close: closeVal || "20:00",
+                    closed: closedVal
+                };
+            });
+
+            const updatedProfile = {
+                id: 'jaytextile',
+                showroom_name: document.getElementById('modal-showroom-name').value.trim(),
+                whatsapp_number: primaryContact.number, // Sync legacy number with primary
+                contact_numbers: tempContacts,
+                showroom_address: document.getElementById('modal-address').value.trim(),
+                business_hours: "Mon - Sat: 11:00 AM - 8:00 PM\nSunday: Closed", // Legacy fallback
+                email: document.getElementById('modal-email').value.trim(),
+                landline: document.getElementById('modal-landline').value.trim(),
+                timings: timings,
+                special_holidays: tempHolidays
+            };
+
+            profile = updatedProfile;
+            localStorage.setItem(STORAGE_PROFILE_KEY, JSON.stringify(updatedProfile));
+
+            closeProfileModal();
+            renderProfile();
+            showToast("Profile Updated", "Showroom contact details and operating hours successfully saved.");
+        }
+
+        // Lightbox Functions
+        let isLightboxZoomed = false;
+        let currentLightboxProductIndex = -1;
+        let currentLightboxImageIndex = -1;
+        
+        function toggleLightboxZoom() {
+            const img = document.getElementById('lightbox-img');
+            const icon = document.getElementById('zoom-icon');
+            const text = document.getElementById('zoom-text');
+            
+            isLightboxZoomed = !isLightboxZoomed;
+            if (isLightboxZoomed) {
+                img.classList.remove('max-w-full', 'max-h-[70vh]', 'md:max-h-[78vh]', 'cursor-zoom-in', 'm-auto', 'object-contain');
+                img.classList.add('max-w-none', 'max-h-none', 'w-[200%]', 'h-auto', 'cursor-zoom-out', 'shrink-0');
+                const container = document.getElementById('lightbox-img-container');
+                if (container) {
+                    container.classList.remove('flex');
+                    container.classList.add('block');
+                }
+                if (icon) icon.textContent = 'zoom_out';
+                if (text) text.textContent = 'Reset';
+            } else {
+                img.classList.remove('max-w-none', 'max-h-none', 'w-[200%]', 'h-auto', 'cursor-zoom-out', 'shrink-0');
+                img.classList.add('max-w-full', 'max-h-[70vh]', 'md:max-h-[78vh]', 'cursor-zoom-in', 'm-auto', 'object-contain');
+                const container = document.getElementById('lightbox-img-container');
+                if (container) {
+                    container.classList.remove('block');
+                    container.classList.add('flex');
+                }
+                if (icon) icon.textContent = 'zoom_in';
+                if (text) text.textContent = 'Zoom';
+            }
+        }
+
+        function updateLightboxChevrons(totalImages) {
+            const prevBtn = document.getElementById('lightbox-prev-btn');
+            const nextBtn = document.getElementById('lightbox-next-btn');
+            
+            if (totalImages > 1) {
+                if (prevBtn) prevBtn.classList.remove('hidden');
+                if (nextBtn) nextBtn.classList.remove('hidden');
+            } else {
+                if (prevBtn) prevBtn.classList.add('hidden');
+                if (nextBtn) nextBtn.classList.add('hidden');
+            }
+        }
+
+        function openLightboxForIndex(prodIndex, imgIndex) {
+            currentLightboxProductIndex = prodIndex;
+            currentLightboxImageIndex = imgIndex;
+            
+            const products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            const item = products[prodIndex];
+            if (!item) return;
+
+            const images = getNormalizedImages(item);
+            const imgSrc = images[imgIndex] ? images[imgIndex].url : fallbackProductImage;
+            
+            openLightbox(imgSrc, item.title, item.fabric, item.type);
+            updateLightboxChevrons(images.length);
+            document.getElementById('lightbox-meta').textContent = `${item.fabric} • ${item.type} (${imgIndex + 1}/${images.length})`;
+        }
+
+        function navigateLightbox(direction) {
+            if (currentLightboxProductIndex === -1) return;
+            
+            const products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+            const item = products[currentLightboxProductIndex];
+            if (!item) return;
+
+            const images = getNormalizedImages(item);
+            const total = images.length;
+            
+            currentLightboxImageIndex = (currentLightboxImageIndex + direction + total) % total;
+            const imgSrc = images[currentLightboxImageIndex] ? images[currentLightboxImageIndex].url : fallbackProductImage;
+            
+            if (isLightboxZoomed) {
+                toggleLightboxZoom();
+            }
+
+            const img = document.getElementById('lightbox-img');
+            const openLink = document.getElementById('lightbox-open-link');
+            
+            img.src = imgSrc;
+            if (openLink) openLink.href = imgSrc;
+            document.getElementById('lightbox-meta').textContent = `${item.fabric} • ${item.type} (${currentLightboxImageIndex + 1}/${total})`;
+        }
+
+        function openLightbox(imgSrc, title, fabric, type) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const t = document.getElementById('lightbox-title');
+            const m = document.getElementById('lightbox-meta');
+            const openLink = document.getElementById('lightbox-open-link');
+
+            img.src = imgSrc;
+            t.textContent = title;
+            m.textContent = `${fabric} • ${type}`;
+            if (openLink) openLink.href = imgSrc;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.getElementById('lightbox-content').classList.remove('scale-95');
+            document.getElementById('lightbox-content').classList.add('scale-100');
+            
+            // Single image lightbox doesn't track product indices, hide chevrons
+            if (currentLightboxProductIndex === -1) {
+                updateLightboxChevrons(1);
+            }
+        }
+
+        function closeLightbox(e) {
+            if (e) e.stopPropagation();
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.getElementById('lightbox-content').classList.remove('scale-100');
+            document.getElementById('lightbox-content').classList.add('scale-95');
+            
+            isLightboxZoomed = false;
+            const img = document.getElementById('lightbox-img');
+            img.classList.remove('max-w-none', 'max-h-none', 'w-[200%]', 'h-auto', 'cursor-zoom-out', 'shrink-0');
+            img.classList.add('max-w-full', 'max-h-[70vh]', 'md:max-h-[78vh]', 'cursor-zoom-in', 'm-auto', 'object-contain');
+            const container = document.getElementById('lightbox-img-container');
+            if (container) {
+                container.classList.remove('block');
+                container.classList.add('flex');
+            }
+            const icon = document.getElementById('zoom-icon');
+            const text = document.getElementById('zoom-text');
+            if (icon) icon.textContent = 'zoom_in';
+            if (text) text.textContent = 'Zoom';
+            
+            // Reset trackers
+            currentLightboxProductIndex = -1;
+            currentLightboxImageIndex = -1;
+        }
+
+        // Keyboard handler for Lightbox carousel and closing
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal && !modal.classList.contains('opacity-0')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                }
+            }
+        });
+
+        // Toggle mobile drawer visibility
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-sidebar');
+            const overlay = document.getElementById('mobile-overlay');
+            const side = document.getElementById('mobile-drawer');
+
+            if (drawer.classList.contains('pointer-events-none')) {
+                drawer.classList.remove('pointer-events-none');
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+                side.classList.remove('-translate-x-full');
+                side.classList.add('translate-x-0');
+            } else {
+                drawer.classList.add('pointer-events-none');
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+                side.classList.remove('translate-x-0');
+                side.classList.add('-translate-x-full');
+            }
+        }
+
+        // Auth Functions
+        const STORAGE_ADMINS_KEY = "jaytextile_admins";
+        const STORAGE_CURRENT_ADMIN_KEY = "jaytextile_current_admin";
+
+        async function initAuth() {
+            let admins = JSON.parse(localStorage.getItem(STORAGE_ADMINS_KEY));
+            if (!admins || admins.length === 0) {
+                admins = [{ username: 'jaytextile222324', password: 'jaytextile2026' }];
+                localStorage.setItem(STORAGE_ADMINS_KEY, JSON.stringify(admins));
+            }
+
+            const currentAdmin = localStorage.getItem(STORAGE_CURRENT_ADMIN_KEY);
+            if (currentAdmin) {
+                isAuthenticated = true;
+                document.getElementById('admin-login-overlay').classList.add('hidden');
+                document.getElementById('admin-logout-btn').classList.remove('hidden');
+                loadDashboardData();
+            } else {
+                document.getElementById('admin-login-overlay').classList.remove('hidden');
+            }
+        }
+
+        async function handleAdminLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value.trim();
+            const password = document.getElementById('login-password').value;
+            const errorMsg = document.getElementById('login-error-msg');
+            const submitBtn = document.getElementById('login-submit-btn');
+
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Authenticating...';
+            submitBtn.disabled = true;
+
+            const admins = JSON.parse(localStorage.getItem(STORAGE_ADMINS_KEY)) || [];
+            const validAdmin = admins.find(a => a.username === username && a.password === password);
+
+            setTimeout(() => {
+                submitBtn.innerHTML = 'Authenticate <span class="material-symbols-outlined text-[18px]">vpn_key</span>';
+                submitBtn.disabled = false;
+
+                if (validAdmin) {
+                    localStorage.setItem(STORAGE_CURRENT_ADMIN_KEY, username);
+                    errorMsg.classList.add('hidden');
+                    isAuthenticated = true;
+                    document.getElementById('admin-login-overlay').classList.add('hidden');
+                    document.getElementById('admin-logout-btn').classList.remove('hidden');
+                    loadDashboardData();
+                    showToast('Login Successful', `Welcome back, ${username}.`);
+                    document.getElementById('login-form').reset();
+                } else {
+                    errorMsg.textContent = "Invalid username or password.";
+                    errorMsg.classList.remove('hidden');
+                }
+            }, 600); // Simulate network delay for UX
+        }
+
+        async function handleAdminLogout() {
+            if (confirm("Are you sure you want to sign out?")) {
+                isAuthenticated = false;
+                localStorage.removeItem(STORAGE_CURRENT_ADMIN_KEY);
+                document.getElementById('admin-login-overlay').classList.remove('hidden');
+                document.getElementById('admin-logout-btn').classList.add('hidden');
+                document.getElementById('admin-products-grid').innerHTML = ''; // clear dash UI
+            }
+        }
+
+        function handleAddAdmin(e) {
+            e.preventDefault();
+            const newUsername = document.getElementById('new-admin-username').value.trim();
+            const newPassword = document.getElementById('new-admin-password').value;
+            
+            let admins = JSON.parse(localStorage.getItem(STORAGE_ADMINS_KEY)) || [];
+            
+            if (admins.find(a => a.username === newUsername)) {
+                showToast('Error', 'Username already exists.', true);
+                return;
+            }
+
+            admins.push({ username: newUsername, password: newPassword });
+            localStorage.setItem(STORAGE_ADMINS_KEY, JSON.stringify(admins));
+            
+            showToast('Admin Created', `Sub-admin "${newUsername}" has been added successfully.`);
+            document.getElementById('add-admin-form').reset();
+            closeAdminModal();
+        }
+
+        function openAdminModal() {
+            const modal = document.getElementById('admin-management-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+            modal.querySelector('div').classList.add('scale-100');
+        }
+
+        function closeAdminModal() {
+            const modal = document.getElementById('admin-management-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        async function loadDashboardData() {
+            await fetchProfile();
+            await fetchProducts();
+            renderProfile();
+            renderProducts();
+        }
+
+        async function fetchProfile() {
+            if (!profile) {
+                profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
+            }
+        }
+
+        async function fetchProducts() {
+            products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+        }
+
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', () => {
+            setupImageUpload();
+            initAuth();
+
+            // Setup real-time listeners for changes in other pages/tabs
+            window.addEventListener('storage', (e) => {
+                if (e.key === STORAGE_PRODUCTS_KEY) {
+                    products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_KEY)) || [];
+                    renderProducts();
+                }
+                if (e.key === STORAGE_PROFILE_KEY) {
+                    profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
+                    renderProfile();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
