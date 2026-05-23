@@ -391,7 +391,7 @@
     <script>
         const SUPABASE_URL = 'https://cumcgpglqqscgjsxvcxb.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bWNncGdscXFzY2dqc3h2Y3hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NTYxNTYsImV4cCI6MjA5NTAzMjE1Nn0.K5AmDkEMg7VZkyjA46zUZjfKH4Tx-jUcwc37sTBlBdQ';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         // Shared data keys
         const STORAGE_PRODUCTS_KEY = "jaytextile_products";
         const STORAGE_PROFILE_KEY = "jaytextile_profile";
@@ -588,7 +588,7 @@
 
         // Populate business details dynamically
         async function loadProfile() {
-            const { data, error } = await supabase.from('business_profile').select('*').single();
+            const { data, error } = await supabaseClient.from('business_profile').select('*').single();
             let profile = data;
             if (error || !profile) {
                 profile = JSON.parse(localStorage.getItem(STORAGE_PROFILE_KEY)) || defaultProfile;
@@ -786,7 +786,7 @@
         }
 
         async function loadProducts() {
-            const { data, error } = await supabase.from('products').select('*').order('added_date', { ascending: false });
+            const { data, error } = await supabaseClient.from('products').select('*').order('added_date', { ascending: false });
             let products = [];
             if (data && !error) {
                 products = data.map(item => ({

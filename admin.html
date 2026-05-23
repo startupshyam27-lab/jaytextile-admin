@@ -969,7 +969,7 @@
     <script>
         const SUPABASE_URL = 'https://cumcgpglqqscgjsxvcxb.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1bWNncGdscXFzY2dqc3h2Y3hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0NTYxNTYsImV4cCI6MjA5NTAzMjE1Nn0.K5AmDkEMg7VZkyjA46zUZjfKH4Tx-jUcwc37sTBlBdQ';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         // Shared data keys
         const STORAGE_PRODUCTS_KEY = "jaytextile_products";
         const STORAGE_PROFILE_KEY = "jaytextile_profile";
@@ -2120,7 +2120,7 @@
             const p = products[idx];
             if (confirm(`Are you absolutely sure you want to remove collection "${p.title}" from the showroom catalog?`)) {
                 if (p.id) {
-                    await supabase.from('products').delete().eq('id', p.id);
+                    await supabaseClient.from('products').delete().eq('id', p.id);
                 }
                 products.splice(idx, 1);
                 renderProducts();
@@ -2203,12 +2203,12 @@
             if (editingProductIndex > -1) {
                 const currentId = products[editingProductIndex].id;
                 if (currentId) {
-                    await supabase.from('products').update(dbItem).eq('id', currentId);
+                    await supabaseClient.from('products').update(dbItem).eq('id', currentId);
                 }
                 products[editingProductIndex] = { ...item, ...dbItem, id: currentId, inStock: stockVal, image: dbItem.main_image };
                 showToast("Collection Updated", `"${titleVal}" updated successfully.`);
             } else {
-                const { data, error } = await supabase.from('products').insert([dbItem]).select();
+                const { data, error } = await supabaseClient.from('products').insert([dbItem]).select();
                 if (data && data.length > 0) {
                     const newItem = data[0];
                     products.unshift({ ...item, ...newItem, inStock: newItem.in_stock, image: newItem.main_image });
@@ -2268,7 +2268,7 @@
                 special_holidays: tempHolidays
             };
 
-            const { error } = await supabase.from('business_profile').update(updatedProfile).eq('id', 1);
+            const { error } = await supabaseClient.from('business_profile').update(updatedProfile).eq('id', 1);
             if (error) {
                 showToast("Error Saving Profile", error.message, true);
                 return;
@@ -2562,7 +2562,7 @@
         }
 
         async function fetchProfile() {
-            const { data, error } = await supabase.from('business_profile').select('*').single();
+            const { data, error } = await supabaseClient.from('business_profile').select('*').single();
             if (data && !error) {
                 profile = data;
             } else {
@@ -2571,7 +2571,7 @@
         }
 
         async function fetchProducts() {
-            const { data, error } = await supabase.from('products').select('*').order('added_date', { ascending: false });
+            const { data, error } = await supabaseClient.from('products').select('*').order('added_date', { ascending: false });
             if (data && !error) {
                 products = data.map(item => ({
                     ...item,
